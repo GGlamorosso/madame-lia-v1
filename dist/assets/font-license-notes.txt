@@ -1,0 +1,3 @@
+Cormorant Garamond: https://github.com/CatharsisFonts/Cormorant
+Manrope: https://github.com/sharanda/manrope
+Both distributed under SIL Open Font License 1.1.
