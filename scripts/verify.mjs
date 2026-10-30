@@ -7,6 +7,10 @@ import {writeFile, mkdir} from 'node:fs/promises';
 await mkdir('qa', {recursive:true});
 const baseURL = process.env.BASE_URL || 'http://localhost:4173/';
 const browser=await chromium.launch({...(process.env.BROWSER_PATH ? {executablePath:process.env.BROWSER_PATH} : {}),headless:true});
+const original = await (await fetch(new URL('services.json', baseURL))).json();
+const photoCount = original.services.reduce((n, service) => n + service.photos.length, 0);
+const baptismCount = original.services.find(service => service.id === 'bapteme').photos.length;
+const counter = index => `${String(index % baptismCount + 1).padStart(2,'0')} / ${String(baptismCount).padStart(2,'0')}`;
 const report=[];
 let checks=0;
 const ok=(value,message)=>{assert.ok(value,message);checks++;};
@@ -33,7 +37,7 @@ try {
    hiddenReveals:[...document.querySelectorAll('[data-reveal]')].filter(el=>getComputedStyle(el).opacity!=='1').length
   }));
   equal(state.overflow,false,`horizontal overflow at ${width}`);
-  equal(state.count,16,`gallery count ${width}`);
+  equal(state.count,photoCount,`gallery count ${width}`);
   equal(state.unloaded.length,0,`unloaded images ${width}`);
   equal(state.wrongAnchors.length,0,`broken anchors ${width}`);
   equal(state.missingAlts,0,`missing alt ${width}`);
@@ -49,24 +53,24 @@ try {
   }
   for(const id of ['mariage','bapteme','naissance','anniversaire','portrait','voiture','restaurant','evenement']){
    await page.locator(`[data-filter="${id}"]`).click();
-   equal(await page.locator('.photo-card').count(),2,`${id} filter ${width}`);
+   equal(await page.locator('.photo-card').count(),original.services.find(service => service.id === id).photos.length,`${id} filter ${width}`);
    equal(await page.locator('.filter[aria-pressed="true"]').count(),1,'one selected filter');
    ok((await page.locator('.photo-card figcaption').allTextContents()).every(t=>t.includes(id==='bapteme'?'Baptême':id==='evenement'?'Événement':id[0].toUpperCase()+id.slice(1))),`correct theme ${id}`);
   }
   await page.locator('[data-filter="all"]').click();
-  equal(await page.locator('.photo-card').count(),16,'reset filter');
+  equal(await page.locator('.photo-card').count(),photoCount,'reset filter');
   await page.locator('[data-portfolio-theme="bapteme"]').click();
   equal(await page.locator('[data-filter="bapteme"]').getAttribute('aria-pressed'),'true','featured selects baptism');
   const opener=page.locator('[data-photo-index="0"]');
   await opener.click();
   equal(await page.locator('#lightbox').evaluate(el=>el.open),true,'lightbox opens');
-  equal(await page.locator('#lightbox-counter').textContent(),'01 / 02','first photo');
+  equal(await page.locator('#lightbox-counter').textContent(),counter(0),'first photo');
   await page.keyboard.press('ArrowRight');
-  equal(await page.locator('#lightbox-counter').textContent(),'02 / 02','next photo');
+  equal(await page.locator('#lightbox-counter').textContent(),counter(1),'next photo');
   await page.keyboard.press('ArrowRight');
-  equal(await page.locator('#lightbox-counter').textContent(),'01 / 02','lightbox wraps');
+  equal(await page.locator('#lightbox-counter').textContent(),counter(2),'second next photo');
   await page.keyboard.press('ArrowLeft');
-  equal(await page.locator('#lightbox-counter').textContent(),'02 / 02','previous photo');
+  equal(await page.locator('#lightbox-counter').textContent(),counter(1),'previous photo');
   await page.keyboard.press('Escape');
   equal(await page.locator('#lightbox').evaluate(el=>el.open),false,'Escape closes');
   equal(await opener.evaluate(el=>el===document.activeElement),true,'focus restores');
@@ -113,7 +117,7 @@ try {
   await page.close();
  }
  // Replacing images must update every placement and provisional disclosure.
- const config = await (await fetch(new URL('services.json', baseURL))).json();
+ const config = structuredClone(original);
  const replacement = {src:'assets/test-photo.png',alt:'Photographie réelle de test',width:1,height:1,provisional:false};
  const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aF1EAAAAASUVORK5CYII=', 'base64');
  for (const key of Object.keys(config.images)) config.images[key] = {...replacement};
@@ -138,12 +142,12 @@ try {
  const invalid=await browser.newPage({reducedMotion:'reduce'});
  await invalid.route('**/services.json',route=>route.fulfill({json:{...config,images:{...config.images,hero:{...replacement,src:'https://example.com/photo.png'}}}}));
  await invalid.goto(baseURL,{waitUntil:'networkidle'});
- equal(await invalid.locator('.photo-card').count(),16,'invalid external asset rejected with snapshot fallback');
+ equal(await invalid.locator('.photo-card').count(),photoCount,'invalid external asset rejected with snapshot fallback');
  await invalid.close();
  const fallback=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
  await fallback.route('**/services.json',route=>route.abort());
  await fallback.goto(baseURL,{waitUntil:'networkidle'});
- equal(await fallback.locator('.photo-card').count(),16,'gallery fallback works without JSON');
+ equal(await fallback.locator('.photo-card').count(),photoCount,'gallery fallback works without JSON');
  equal(await fallback.locator('.project-theme').count(),8,'form themes fallback');
  await fallback.close();
  const noScript=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:844}});
