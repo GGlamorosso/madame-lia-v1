@@ -4,3 +4,7 @@ node_modules/
 qa/
 *.tar.gz
 *.tar
+.vercel/
+.env
+.env.*
+!.env.example

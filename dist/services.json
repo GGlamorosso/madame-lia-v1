@@ -1,10 +1,235 @@
-{"services":[
-  {"id":"mariage","title":"Mariage","group":"evenements","eyebrow":"LE GRAND OUI","description":"Les regards qui se croisent, les mains qui se serrent et tous les petits instants de votre grand jour.","price":"[À compléter]","duration":"[Durée à préciser]","delivery":"[Livraison à préciser]","includes":["[Nombre de photos à préciser]","[Contenu de la formule à compléter]","[Options et déplacements à préciser]"]},
-  {"id":"portrait","title":"Portrait","group":"instants","eyebrow":"SIMPLEMENT VOUS","description":"Un moment pour vous, votre personnalité et cette lumière singulière qui fait que vous ne ressemblez à personne.","price":"[À compléter]","duration":"[Durée à préciser]","delivery":"[Livraison à préciser]","includes":["[Nombre de photos à préciser]","[Lieu de la séance à définir]","[Options à compléter]"]},
-  {"id":"bapteme","title":"Baptême","group":"evenements","eyebrow":"LES LIENS PRÉCIEUX","description":"Une famille réunie, des gestes tendres et les souvenirs d’une journée qui comptera dans son histoire.","price":"[À compléter]","duration":"[Durée à préciser]","delivery":"[Livraison à préciser]","includes":["[Temps de présence à compléter]","[Nombre de photos à préciser]","[Contenu de la formule à compléter]"]},
-  {"id":"naissance","title":"Naissance","group":"instants","eyebrow":"LES TOUT PREMIERS JOURS","description":"De toutes petites mains, des regards nouveaux et la douceur de ces premiers moments à découvrir ensemble.","price":"[À compléter]","duration":"[Durée à préciser]","delivery":"[Livraison à préciser]","includes":["[Lieu de la séance à définir]","[Nombre de photos à préciser]","[Contenu de la formule à compléter]"]},
-  {"id":"anniversaire","title":"Anniversaire","group":"evenements","eyebrow":"UNE BOUGIE DE PLUS","description":"Les bougies, les retrouvailles et les rires partagés : une nouvelle année à garder bien au chaud dans vos souvenirs.","price":"[À compléter]","duration":"[Durée à préciser]","delivery":"[Livraison à préciser]","includes":["[Temps de présence à compléter]","[Nombre de photos à préciser]","[Options à compléter]"]},
-  {"id":"voiture","title":"Voiture","group":"professionnels","eyebrow":"L’ALLURE EN IMAGES","description":"Une silhouette, une matière, un détail : des images pour raconter votre véhicule et la passion qui l’accompagne.","price":"[À compléter]","duration":"[Durée à préciser]","delivery":"[Livraison à préciser]","includes":["[Nombre de photos à préciser]","[Lieu et prises de vue à définir]","[Usages des images à préciser]"]},
-  {"id":"restaurant","title":"Restaurant","group":"professionnels","eyebrow":"LE GOÛT DU BEAU","description":"L’atmosphère d’un lieu, le geste en cuisine et le soin d’une assiette : votre univers se raconte aussi en images.","price":"[À compléter]","duration":"[Durée à préciser]","delivery":"[Livraison à préciser]","includes":["[Nombre de photos à préciser]","[Sujets et prises de vue à définir]","[Usages des images à préciser]"]},
-  {"id":"evenement","title":"Événement","group":"evenements","eyebrow":"L’ÉNERGIE DU MOMENT","description":"Un lancement, une fête, une rencontre : garder une trace de l’ambiance, des échanges et des moments qui vous rassemblent.","price":"[À compléter]","duration":"[Durée à préciser]","delivery":"[Livraison à préciser]","includes":["[Type d’événement à définir]","[Temps de présence à compléter]","[Nombre de photos à préciser]"]}
-]}
+{
+  "contact": {
+    "whatsapp": "33767220949",
+    "email": "liapellegrin22@gmail.com",
+    "socials": []
+  },
+  "services": [
+    {
+      "id": "mariage",
+      "title": "Mariage",
+      "group": "evenements",
+      "eyebrow": "LE GRAND OUI",
+      "featured": true,
+      "photos": [
+        {
+          "src": "assets/mariage-1.webp",
+          "alt": "Un couple de mariés dans un jardin méditerranéen — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/mariage-1-small.webp 720w, assets/mariage-1-medium.webp 1120w, assets/mariage-1.webp 1448w"
+        },
+        {
+          "src": "assets/mariage-2.webp",
+          "alt": "Un détail intime d’une journée de mariage — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/mariage-2-small.webp 720w, assets/mariage-2-medium.webp 1120w, assets/mariage-2.webp 1448w"
+        }
+      ]
+    },
+    {
+      "id": "bapteme",
+      "title": "Baptême",
+      "group": "evenements",
+      "eyebrow": "LES LIENS PRÉCIEUX",
+      "featured": true,
+      "photos": [
+        {
+          "src": "assets/bapteme-1.webp",
+          "alt": "Une famille réunie autour d’un bébé lors d’un baptême — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/bapteme-1-small.webp 720w, assets/bapteme-1-medium.webp 1120w, assets/bapteme-1.webp 1448w"
+        },
+        {
+          "src": "assets/bapteme-2.webp",
+          "alt": "Des mains et des détails tendres lors d’un baptême — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/bapteme-2-small.webp 720w, assets/bapteme-2-medium.webp 1120w, assets/bapteme-2.webp 1448w"
+        }
+      ]
+    },
+    {
+      "id": "naissance",
+      "title": "Naissance",
+      "group": "instants",
+      "eyebrow": "LES TOUT PREMIERS JOURS",
+      "featured": false,
+      "photos": [
+        {
+          "src": "assets/naissance-1.webp",
+          "alt": "Un nouveau-né dans les bras d’un parent — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/naissance-1-small.webp 720w, assets/naissance-1-medium.webp 1120w, assets/naissance-1.webp 1448w"
+        },
+        {
+          "src": "assets/naissance-2.webp",
+          "alt": "Les premiers petits détails d’un nouveau-né — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/naissance-2-small.webp 720w, assets/naissance-2-medium.webp 1120w, assets/naissance-2.webp 1448w"
+        }
+      ]
+    },
+    {
+      "id": "anniversaire",
+      "title": "Anniversaire",
+      "group": "evenements",
+      "eyebrow": "UNE BOUGIE DE PLUS",
+      "featured": false,
+      "photos": [
+        {
+          "src": "assets/anniversaire-1.webp",
+          "alt": "Un anniversaire dans un jardin à la lumière du soir — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/anniversaire-1-small.webp 720w, assets/anniversaire-1-medium.webp 1120w, assets/anniversaire-1.webp 1448w"
+        },
+        {
+          "src": "assets/anniversaire-2.webp",
+          "alt": "Un gâteau et les détails d’un anniversaire partagé — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/anniversaire-2-small.webp 720w, assets/anniversaire-2-medium.webp 1120w, assets/anniversaire-2.webp 1448w"
+        }
+      ]
+    },
+    {
+      "id": "portrait",
+      "title": "Portrait",
+      "group": "instants",
+      "eyebrow": "SIMPLEMENT VOUS",
+      "featured": false,
+      "photos": [
+        {
+          "src": "assets/portrait-1.webp",
+          "alt": "Un portrait dans une lumière méditerranéenne naturelle — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/portrait-1-small.webp 720w, assets/portrait-1-medium.webp 1120w, assets/portrait-1.webp 1448w"
+        },
+        {
+          "src": "assets/portrait-2.webp",
+          "alt": "Un autre regard, un détail de portrait — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/portrait-2-small.webp 720w, assets/portrait-2-medium.webp 1120w, assets/portrait-2.webp 1448w"
+        }
+      ]
+    },
+    {
+      "id": "voiture",
+      "title": "Voiture",
+      "group": "professionnels",
+      "eyebrow": "L’ALLURE EN IMAGES",
+      "featured": false,
+      "photos": [
+        {
+          "src": "assets/voiture-1.webp",
+          "alt": "Une voiture ancienne sur une route du littoral — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/voiture-1-small.webp 720w, assets/voiture-1-medium.webp 1120w, assets/voiture-1.webp 1448w"
+        },
+        {
+          "src": "assets/voiture-2.webp",
+          "alt": "Un détail de carrosserie et ses reflets — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/voiture-2-small.webp 720w, assets/voiture-2-medium.webp 1120w, assets/voiture-2.webp 1448w"
+        }
+      ]
+    },
+    {
+      "id": "restaurant",
+      "title": "Restaurant",
+      "group": "professionnels",
+      "eyebrow": "LE GOÛT DU BEAU",
+      "featured": false,
+      "photos": [
+        {
+          "src": "assets/restaurant-1.webp",
+          "alt": "Une table et l’atmosphère d’un restaurant méditerranéen — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/restaurant-1-small.webp 720w, assets/restaurant-1-medium.webp 1120w, assets/restaurant-1.webp 1448w"
+        },
+        {
+          "src": "assets/restaurant-2.webp",
+          "alt": "Une composition de cuisine et de matières naturelles — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/restaurant-2-small.webp 720w, assets/restaurant-2-medium.webp 1120w, assets/restaurant-2.webp 1448w"
+        }
+      ]
+    },
+    {
+      "id": "evenement",
+      "title": "Événement",
+      "group": "evenements",
+      "eyebrow": "L’ÉNERGIE DU MOMENT",
+      "featured": false,
+      "photos": [
+        {
+          "src": "assets/evenement-1.webp",
+          "alt": "Des rencontres lors d’un événement en plein air — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/evenement-1-small.webp 720w, assets/evenement-1-medium.webp 1120w, assets/evenement-1.webp 1448w"
+        },
+        {
+          "src": "assets/evenement-2.webp",
+          "alt": "Un instant spontané lors d’un événement — visuel d’ambiance provisoire",
+          "width": 1448,
+          "height": 1086,
+          "provisional": true,
+          "srcset": "assets/evenement-2-small.webp 720w, assets/evenement-2-medium.webp 1120w, assets/evenement-2.webp 1448w"
+        }
+      ]
+    }
+  ],
+  "images": {
+    "hero": {
+      "src": "assets/saint-tropez.webp",
+      "alt": "Depuis les hauteurs de Saint-Tropez, le clocher et les toits ocre devant le golfe parsemé de voiliers — visuel d’ambiance provisoire",
+      "width": 1672,
+      "height": 941,
+      "srcset": "assets/saint-tropez-small.webp 720w, assets/saint-tropez-medium.webp 1120w, assets/saint-tropez.webp 1672w",
+      "provisional": true
+    },
+    "aboutMain": {
+      "src": "assets/lia-studio.webp",
+      "alt": "Une photographe de dos dans un atelier lumineux — image d’ambiance provisoire, portrait de Lia à venir",
+      "width": 1086,
+      "height": 1448,
+      "srcset": "assets/lia-studio-small.webp 720w, assets/lia-studio.webp 1086w",
+      "provisional": true
+    },
+    "aboutDetail": {
+      "src": "assets/lia-detail.webp",
+      "alt": "Des mains tenant un appareil photo dans un atelier — image d’ambiance provisoire",
+      "width": 1122,
+      "height": 1402,
+      "srcset": "assets/lia-detail-small.webp 720w, assets/lia-detail-medium.webp 1120w, assets/lia-detail.webp 1122w",
+      "provisional": true
+    }
+  }
+}

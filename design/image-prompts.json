@@ -1,0 +1,139 @@
+{
+  "generator": "Built-in image_gen.imagegen",
+  "provisional": true,
+  "images": [
+    {
+      "id": "saint-tropez",
+      "prompt": "Generate one photographic website hero image, landscape panoramic 16:9 or wider. Photorealistic natural editorial travel photography. Saint-Tropez France seen from the heights near the Citadelle during Les Voiles de Saint-Tropez: recognizable yellow ochre and pale pink church bell tower rising among terracotta old-town roofs in the foreground, blue Mediterranean gulf beyond filled with many classic sailing yachts racing under cream white sails, distant Maures hills, warm clear late-afternoon Mediterranean light, natural muted colors, subtle analog grain, sophisticated art photography, lifelike architecture, believable sailboats. Wide generous composition showing both town and bay. No text, logo, watermark or graphic. This is a temporary mood image for a photographer portfolio, not a documentary claim.",
+      "file": "dist/assets/saint-tropez.webp",
+      "width": 1672,
+      "height": 941
+    },
+    {
+      "id": "mariage-1",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Intimate French Mediterranean wedding, bride and groom walking away through a warm sunlit garden, candid genuine body language, elegant understated ivory dress, olive trees. Wider environmental composition with a strong photographic point of view. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/mariage-1.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "mariage-2",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Intimate French Mediterranean wedding, bride and groom walking away through a warm sunlit garden, candid genuine body language, elegant understated ivory dress, olive trees. A distinct complementary closer detail framing, not the same shot, intimate moment or material detail. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/mariage-2.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "bapteme-1",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Tender French family christening, close-up of parents hands holding a baby wearing an ivory christening outfit, softly lit historical church, respectful intimate moment. Wider environmental composition with a strong photographic point of view. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/bapteme-1.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "bapteme-2",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Tender French family christening, close-up of parents hands holding a baby wearing an ivory christening outfit, softly lit historical church, respectful intimate moment. A distinct complementary closer detail framing, not the same shot, intimate moment or material detail. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/bapteme-2.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "naissance-1",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Newborn baby resting peacefully in a parent's arms, natural window light, linen and warm neutral tones, tender intimate framing. Wider environmental composition with a strong photographic point of view. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/naissance-1.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "naissance-2",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Newborn baby resting peacefully in a parent's arms, natural window light, linen and warm neutral tones, tender intimate framing. A distinct complementary closer detail framing, not the same shot, intimate moment or material detail. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/naissance-2.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "anniversaire-1",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Small outdoor birthday gathering in a Mediterranean garden, candlelit cake, spontaneous laughing guests, natural candid event photography. Wider environmental composition with a strong photographic point of view. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/anniversaire-1.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "anniversaire-2",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Small outdoor birthday gathering in a Mediterranean garden, candlelit cake, spontaneous laughing guests, natural candid event photography. A distinct complementary closer detail framing, not the same shot, intimate moment or material detail. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/anniversaire-2.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "portrait-1",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Candid editorial portrait of a young adult woman outdoors, natural expression, soft Mediterranean afternoon light, understated styling. Wider environmental composition with a strong photographic point of view. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/portrait-1.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "portrait-2",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Candid editorial portrait of a young adult woman outdoors, natural expression, soft Mediterranean afternoon light, understated styling. A distinct complementary closer detail framing, not the same shot, intimate moment or material detail. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/portrait-2.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "voiture-1",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Vintage cream sports car parked on a quiet Mediterranean coastal road, tasteful automotive editorial photography, beautiful reflections, no readable license plate or logos. Wider environmental composition with a strong photographic point of view. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/voiture-1.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "voiture-2",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Vintage cream sports car parked on a quiet Mediterranean coastal road, tasteful automotive editorial photography, beautiful reflections, no readable license plate or logos. A distinct complementary closer detail framing, not the same shot, intimate moment or material detail. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/voiture-2.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "restaurant-1",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Mediterranean restaurant atmosphere with an elegant simple table, ceramics, linen, warm side light, intimate authentic food and hospitality photography. Wider environmental composition with a strong photographic point of view. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/restaurant-1.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "restaurant-2",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Mediterranean restaurant atmosphere with an elegant simple table, ceramics, linen, warm side light, intimate authentic food and hospitality photography. A distinct complementary closer detail framing, not the same shot, intimate moment or material detail. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/restaurant-2.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "evenement-1",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Intimate outdoor cultural gathering at golden hour on the French Riviera, people chatting naturally, string lights, candid editorial event photography. Wider environmental composition with a strong photographic point of view. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/evenement-1.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "evenement-2",
+      "prompt": "Create one individual photograph, no collage, landscape 4:3. Photorealistic natural editorial photography, subtle film texture, warm whites, natural olive and terracotta palette, sophisticated photographer portfolio mood image. Scene: Intimate outdoor cultural gathering at golden hour on the French Riviera, people chatting naturally, string lights, candid editorial event photography. A distinct complementary closer detail framing, not the same shot, intimate moment or material detail. Natural believable people and anatomy where present. No text, branding or watermark. Temporary illustrative mood image, not a real photographer's documented work.",
+      "file": "dist/assets/evenement-2.webp",
+      "width": 1448,
+      "height": 1086
+    },
+    {
+      "id": "lia-studio",
+      "prompt": "One photorealistic natural editorial photograph, portrait 3:4, a young woman photographer seen from behind in a sunlit Mediterranean studio, dark brown hair, white linen shirt, camera held at waist, face entirely out of view, warm neutral light, olive shadows, subtle film grain, quiet artistic intimacy, no text no logos. Temporary anonymous mood image for a photography website.",
+      "file": "dist/assets/lia-studio.webp",
+      "width": 1086,
+      "height": 1448
+    },
+    {
+      "id": "lia-detail",
+      "prompt": "One photorealistic natural editorial photograph, portrait 4:5, close-up of a photographer's hands holding a vintage-style black camera on an ivory linen table, warm window light, contact sheets softly out of focus, beautiful analog texture, no face, no readable branding or text, calm Mediterranean creative studio atmosphere. Temporary mood image.",
+      "file": "dist/assets/lia-detail.webp",
+      "width": 1122,
+      "height": 1402
+    }
+  ]
+}
