@@ -5,7 +5,7 @@ Lire README.md avant toute modification. Site statique français dans dist/, dé
 ## Décisions validées
 
 - Contact WhatsApp/e-mail avec message prérempli et confirmation d’envoi dans l’application.
-- GitHub personnel GGlamorosso, dépôt prévu madame-lia-v1, privé par défaut, branche main.
+- GitHub personnel GGlamorosso, dépôt madame-lia-v1, public à la demande de l’utilisateur, branche main.
 - Vercel se connecte sur l’autre ordinateur ; ne pas publier via l’ancien projet Sites.
 - Photos réelles et contenus manquants se terminent sur l’autre ordinateur. Ne pas inventer bio, réseaux, mentions d’identification ou photographies attribuées à Lia.
 
