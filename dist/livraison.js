@@ -7,7 +7,7 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const VERSION = 'v1';
-  // Seuls ces services peuvent être la cible du bouton « Télécharger » : une page liashoots
+  // Seuls ces services peuvent être la cible du bouton « Télécharger » : une page Liashoot
   // ne peut pas renvoyer vers un site inconnu, même si quelqu'un fabrique un lien.
   const SERVICES = [
     ['wetransfer.com', 'WeTransfer'], ['we.tl', 'WeTransfer'],
@@ -84,7 +84,7 @@
     let delivery;
     try { delivery = decode(fragment); } catch {
       $('[data-wa-message="invalid"]').href = whatsappURL('Bonjour Lia, mon lien de livraison ne s’ouvre pas correctement. Pourriez-vous me le renvoyer ?');
-      document.title = 'Lien incomplet — liashoots';
+      document.title = 'Lien incomplet — Liashoot';
       show('invalid');
       return;
     }
@@ -108,7 +108,7 @@
     $('[data-field="meta"]', ready).textContent = meta.join(' · ');
     $('[data-wa-message="expired"]', ready).href = whatsappURL(`Bonjour Lia, mon lien de livraison (${delivery.n}) a expiré. Pourriez-vous me le renvoyer ?`);
     $('[data-wa-message="again"]', ready).href = whatsappURL(`Bonjour Lia, j’ai bien reçu mes photos (${delivery.n}). J’aimerais réserver une nouvelle séance.`);
-    document.title = `${expired ? 'Lien expiré' : 'Vos images'} — ${delivery.n} · liashoots`;
+    document.title = `${expired ? 'Lien expiré' : 'Vos images'} — ${delivery.n} · Liashoot`;
     show('ready');
   }
   if ($('[data-state]')) {

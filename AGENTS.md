@@ -1,4 +1,4 @@
-# Reprise du projet liashoots (ex-Madame Lia)
+# Reprise du projet Liashoot (ex-Madame Lia)
 
 Lire README.md avant toute modification. Site statique français dans dist/, déployable tel quel : conserver HTML/CSS/JavaScript natifs et le design actuel. Aucun framework, serveur de formulaire, service payant ou secret nécessaire.
 
@@ -7,7 +7,7 @@ Lire README.md avant toute modification. Site statique français dans dist/, dé
 - Contact sans formulaire (demande de l’utilisateur) : chaque bouton « Réserver » ouvre WhatsApp avec un message prérempli, avec à côté les icônes Instagram et e-mail. Ne pas réintroduire de formulaire ni de choix de prestation obligatoire.
 - Site multi-pages : accueil, À propos, Contact + FAQ, Mentions légales, Confidentialité, Espace client (livraison), 404. En-tête (menu mobile) et pied de page communs dans templates/.
 - Livraison client : page brandée /livraison/#v1.… dont les données tiennent dans le fragment, vers le transfert (WeTransfer, SwissTransfer, Drive…) utilisé par Lia, et générateur /livraison/creer/. Aucune photo ni donnée client dans le dépôt public ; liste blanche des services dans dist/livraison.js.
-- Nom affiché : liashoots (demande de l’utilisateur, comme l’Instagram @liashoots_), logo « Lia<em>shoots</em> » ; favicon « lia. ». Le dépôt et l’identifiant interne window.MadameLia gardent l’ancien nom.
+- Nom affiché : Liashoot (demande de l’utilisateur, Instagram @liashoots_), logo « Lia<em>shoot</em> » ; favicon « lia. ». Le dépôt et l’identifiant interne window.MadameLia gardent l’ancien nom.
 - Tarifs : sur devis, aucun prix affiché.
 - GitHub personnel GGlamorosso, dépôt madame-lia-v1, public à la demande de l’utilisateur, branche main.
 - Vercel se connecte sur l’autre ordinateur ; ne pas publier via l’ancien projet Sites.
