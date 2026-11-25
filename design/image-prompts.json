@@ -1,4 +1,6 @@
 {
+  "status": "archive-not-used",
+  "note": "Archive de l’ancienne maquette. Tous les visuels générés ont été retirés du site actif ; voir photo-selection.json pour les photographies réelles intégrées.",
   "generator": "Built-in image_gen.imagegen",
   "provisional": true,
   "images": [

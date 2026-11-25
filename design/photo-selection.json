@@ -1,0 +1,80 @@
+{
+  "note": "Sélection des photographies réelles de Lia (export du compte Instagram @liashoots_). Les fichiers source restent hors dépôt dans photos-source/zip/. Régénérer : node scripts/optimize-photos.mjs",
+  "images": {
+    "hero": { "use": "mariage-01" },
+    "aboutMain": {
+      "source": "2026-06-12_DZf7Q7jDVF9_07.jpg",
+      "name": "about-main",
+      "alt": "Autoportrait au miroir : une jeune femme tient un appareil photo à bout de bras, en noir et blanc"
+    },
+    "aboutDetail": {
+      "source": "2025-12-26_DSvTuswDXHk_03.jpg",
+      "name": "about-detail",
+      "alt": "Très gros plan sur un regard, en noir et blanc"
+    }
+  },
+  "photos": [
+    { "theme": "mariage", "source": "2026-10-16_DejMSPgjf8l_01.jpg", "select": true, "alt": "Au-dessus de la mer, un marié embrasse la joue de la mariée qui éclate de rire, en noir et blanc" },
+    { "theme": "mariage", "source": "2026-10-16_DejMSPgjf8l_04.jpg", "alt": "Les mariés sortent sous un porche de pierre, mains levées, la mariée en robe de satin, en noir et blanc" },
+    { "theme": "mariage", "source": "2026-10-16_DejMSPgjf8l_02.jpg", "alt": "Gros plan sur les mains jointes des mariés assis côte à côte, en noir et blanc" },
+    { "theme": "mariage", "source": "2026-10-16_DejMSPgjf8l_03.jpg", "alt": "La mariée pose la tête sur l’épaule du marié devant la mer, en noir et blanc" },
+
+    { "theme": "naissance", "source": "2026-06-08_DZVGw0xDeFl_03.jpg", "select": true, "alt": "Deux petits pieds de bébé tenus entre les doigts d’un adulte, en noir et blanc" },
+    { "theme": "naissance", "source": "2026-06-08_DZVGw0xDeFl_02.jpg", "alt": "Un bébé coiffé d’un grand nœud regarde l’objectif, allongé sur le côté, en noir et blanc" },
+    { "theme": "naissance", "source": "2026-06-08_DZVGw0xDeFl_01.jpg", "alt": "Les mains potelées d’un bébé serrées l’une contre l’autre, en noir et blanc" },
+    { "theme": "naissance", "source": "2026-06-08_DZVGw0xDeFl_04.jpg", "alt": "Portrait d’un bébé au bandeau noué, le regard levé, en noir et blanc" },
+
+    { "theme": "famille", "source": "2026-09-09_DdEj065tPyy_01.jpg", "select": true, "alt": "Un petit garçon rit aux éclats au premier plan, un autre se cache le visage derrière lui, en noir et blanc" },
+    { "theme": "famille", "source": "2026-06-12_DZf7Q7jDVF9_06.jpg", "alt": "Deux femmes tête contre tête regardent un appareil photo, l’une en dentelle avec une fleur dans les cheveux, en noir et blanc" },
+    { "theme": "famille", "source": "2026-06-12_DZf7Q7jDVF9_01.jpg", "alt": "Une petite fille avec son cartable sourit en penchant la tête, en noir et blanc" },
+    { "theme": "famille", "source": "2026-06-12_DZf7Q7jDVF9_05.jpg", "alt": "Très gros plan sur le visage d’une petite fille aux boucles claires, en noir et blanc" },
+
+    { "theme": "portrait", "source": "2025-10-10_DPoqcoRjZNF_03.jpg", "select": true, "alt": "Une jeune femme aux cheveux bouclés, le menton posé sur le poing, éclairée au flash dans la nuit" },
+    { "theme": "portrait", "source": "2025-11-17_DRLLv1bDPNo_03.jpg", "alt": "Une jeune femme à lunettes en manteau de fourrure clair, cheveux au vent devant des roseaux" },
+    { "theme": "portrait", "source": "2025-10-16_DP3gB7QDSpj_01.jpg", "alt": "Une jeune femme de profil au crépuscule, épaules dénudées, une guirlande lumineuse derrière elle" },
+    { "theme": "portrait", "source": "2025-10-10_DPoqcoRjZNF_01.jpg", "alt": "Une jeune femme rit les yeux fermés, la tête dans le creux du bras, éclairée au flash" },
+    { "theme": "portrait", "source": "2025-10-08_DPitV6ajZwp_01.jpg", "alt": "Un jeune homme accoudé au bord d’une piscine se cache le visage dans les mains, vu d’en haut" },
+    { "theme": "portrait", "source": "2025-11-11_DQ7G3EkDSNx_02.jpg", "alt": "Portrait serré d’une jeune femme à lunettes teintées, bras croisés dans un manteau de fourrure, devant un étang" },
+    { "theme": "portrait", "source": "2025-12-26_DSvTuswDXHk_02.jpg", "alt": "Une jeune femme, bras relevés derrière la tête, regarde de côté, en noir et blanc" },
+    { "theme": "portrait", "source": "2025-11-17_DRLLv1bDPNo_06.jpg", "alt": "De dos, une femme en long manteau de fourrure s’éloigne sur une allée d’automne" },
+    { "theme": "portrait", "source": "2025-12-26_DSvTuswDXHk_01.jpg", "alt": "Une jeune femme, le visage à demi caché par ses cheveux, en noir et blanc" },
+
+    { "theme": "mode", "source": "2025-10-26_DQRFxsMjV-a_03.jpg", "alt": "Un mannequin de profil ajuste sa casquette grise, en veste croisée sombre et jupe en denim, sur fond clair" },
+    { "theme": "mode", "source": "2025-10-26_DQRFxsMjV-a_04.jpg", "alt": "Des bustes de couture blancs alignés devant un mur jaune" },
+    { "theme": "mode", "source": "2025-10-26_DQRFxsMjV-a_07.jpg", "alt": "Le mannequin, tête baissée sous sa casquette, une main posée sur la veste croisée" },
+    { "theme": "mode", "source": "2025-10-26_DQRFxsMjV-a_06.jpg", "alt": "Un bocal en verre rempli de boutons multicolores" },
+
+    { "theme": "evenement", "source": "2026-05-19_DYhmL7GDU9w_05.jpg", "select": true, "alt": "Un jeune homme en uniforme d’époque, bicorne à plumes bleues et blanches, regarde l’objectif, sabre à l’épaule" },
+    { "theme": "evenement", "source": "2026-01-28_DUDBR5-DU88_09.jpg", "alt": "Des hommes en tenue de marin tirent une salve de tromblons, flammes et fumée au-dessus de la rue" },
+    { "theme": "evenement", "source": "2026-05-19_DYhmL7GDU9w_01.jpg", "alt": "De dos, un homme en uniforme bleu et rouge s’éloigne dans une ruelle étroite" },
+    { "theme": "evenement", "source": "2026-05-15_DYXbGmzDSCP_01.jpg", "alt": "Un petit garçon en béret rouge et marinière touche une statue dorée ornée de fleurs blanches" },
+    { "theme": "evenement", "source": "2026-05-19_DYhmL7GDU9w_03.jpg", "alt": "Un officier de profil en uniforme d’époque, bicorne à plumes bleues, sabre au clair" },
+    { "theme": "evenement", "source": "2026-04-07_DW1CccxDSPm_01.jpg", "alt": "Des femmes en costume provençal, chapeaux de paille et jupes rayées, alignées de profil" },
+    { "theme": "evenement", "source": "2026-01-28_DUDBR5-DU88_01.jpg", "alt": "Dans un nuage de fumée, une silhouette en uniforme brandit un drapeau rouge et blanc" },
+    { "theme": "evenement", "source": "2026-05-15_DYXbGmzDSCP_07.jpg", "alt": "Un enfant en béret rouge marche main dans la main avec deux hommes en chapeau noir, pendant un défilé" },
+    { "theme": "evenement", "source": "2026-04-07_DW1CccxDSPm_06.jpg", "alt": "Des chapeaux de paille à large bord au premier plan, des visages souriants en arrière-plan" },
+    { "theme": "evenement", "source": "2026-05-15_DYXbGmzDSCP_10.jpg", "alt": "Des femmes en coiffe de dentelle blanche vues de dos pendant une fête traditionnelle" },
+    { "theme": "evenement", "source": "2026-05-19_DYhmL7GDU9w_16.jpg", "alt": "Une foule de bérets à pompon rouge devant une façade orange au soleil couchant" },
+    { "theme": "evenement", "source": "2025-11-22_DRXJ1UFja_z_01.jpg", "alt": "Des mains réunies sur un ballon de basket avant un match, en noir et blanc" },
+
+    { "theme": "voiture", "source": "2026-07-24_DbLv048DdfF_02.jpg", "alt": "Une berline sombre et un SUV vert garés devant un mur de pierre, sous les pins" },
+    { "theme": "voiture", "source": "2026-07-24_DbLv048DdfF_01.jpg", "alt": "Détail de la calandre et de la jante d’une berline bordeaux" },
+    { "theme": "voiture", "source": "2026-07-24_DbLv048DdfF_06.jpg", "alt": "Un SUV vert bouteille vu de trois quarts avant, en plein soleil" },
+    { "theme": "voiture", "source": "2026-07-24_DbLv048DdfF_03.jpg", "alt": "Le volant et le tableau de bord d’un SUV, vus depuis la portière" },
+
+    { "theme": "voyage", "source": "2025-11-26_DRhzu8YjU8n_08.jpg", "select": true, "alt": "Un homme en casquette marche devant une case blanche au toit de tôle orange" },
+    { "theme": "voyage", "source": "2026-09-28_Dd1rUG4jVDh_09.jpg", "trim": true, "alt": "Une femme allongée sur une jetée au coucher du soleil, un village en face sur la baie" },
+    { "theme": "voyage", "source": "2025-11-26_DRhzu8YjU8n_09.jpg", "alt": "Un pêcheur debout sur sa barque, en silhouette sur un coucher de soleil orange" },
+    { "theme": "voyage", "source": "2026-04-13_DXEitZ6DdUF_02.jpg", "alt": "Un ara rouge aux ailes jaunes et bleues perché dans les feuillages" },
+    { "theme": "voyage", "source": "2026-04-03_DWqtfkNDa22_05.jpg", "alt": "Un poste de secours rose et jaune sur une plage, dans une lumière blanche" },
+    { "theme": "voyage", "source": "2026-09-08_DdBxscCjdnB_06.jpg", "alt": "La silhouette d’une femme de profil devant la mer argentée" },
+    { "theme": "voyage", "source": "2026-02-10_DUkT3yzDYYL_01.jpg", "alt": "Des pentes enneigées ponctuées de quelques sapins isolés" },
+    { "theme": "voyage", "source": "2025-11-26_DRhzu8YjU8n_07.jpg", "alt": "Des reliefs volcaniques rouges et ocre sous un rempart verdoyant" },
+    { "theme": "voyage", "source": "2026-09-28_Dd1rUG4jVDh_06.jpg", "trim": true, "alt": "Une lanterne et un clocher dans la lumière dorée du soir" },
+    { "theme": "voyage", "source": "2026-04-13_DXEitZ6DdUF_04.jpg", "alt": "Un singe capucin à face blanche sur une branche, le regard vers l’objectif" },
+    { "theme": "voyage", "source": "2026-04-03_DWqtfkNDa22_06.jpg", "alt": "Une petite fille de dos regarde la mer au crépuscule" },
+    { "theme": "voyage", "source": "2026-09-28_Dd1rUG4jVDh_14.jpg", "trim": true, "alt": "Un grand voilier à trois mâts sur la mer, dans la brume dorée du soir" },
+    { "theme": "voyage", "source": "2026-02-10_DUkT3yzDYYL_07.jpg", "alt": "Le toit couvert de neige d’un chalet en bois, devant une forêt de mélèzes" },
+    { "theme": "voyage", "source": "2026-09-08_DdBxscCjdnB_13.jpg", "alt": "Un oiseau au long cou perché sur un tronc, sous la pluie, devant une prairie verte" }
+  ]
+}

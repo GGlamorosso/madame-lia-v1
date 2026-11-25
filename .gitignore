@@ -8,3 +8,5 @@ qa/
 .env
 .env.*
 !.env.example
+
+photos-source/

@@ -1,3 +1,4 @@
-Cormorant Garamond: https://github.com/CatharsisFonts/Cormorant
-Manrope: https://github.com/sharanda/manrope
-Both distributed under SIL Open Font License 1.1.
+Archivo : https://github.com/Omnibus-Type/Archivo
+DM Mono : https://github.com/googlefonts/dm-mono
+Cormorant Garamond (italique) : https://github.com/CatharsisFonts/Cormorant
+Toutes distribuées sous SIL Open Font License 1.1.

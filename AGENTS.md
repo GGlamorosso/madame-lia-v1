@@ -7,11 +7,15 @@ Lire README.md avant toute modification. Site statique français dans dist/, dé
 - Contact WhatsApp/e-mail avec message prérempli et confirmation d’envoi dans l’application.
 - GitHub personnel GGlamorosso, dépôt madame-lia-v1, public à la demande de l’utilisateur, branche main.
 - Vercel se connecte sur l’autre ordinateur ; ne pas publier via l’ancien projet Sites.
-- Photos réelles et contenus manquants se terminent sur l’autre ordinateur. Ne pas inventer bio, réseaux, mentions d’identification ou photographies attribuées à Lia.
+- 55 photographies réelles du ZIP fourni sont intégrées, avec l’Instagram donné par l’utilisateur. Biographie, identité du portrait de présentation et mentions d’identification restent à valider. Ne pas inventer ces informations.
+
+## Refonte actuelle
+
+Palette blanc #ffffff et rouge #e33122 (drapeau fourni par l’utilisateur), noir verre très léger ponctuellement. Polices et effets originaux du plan Claude restaurés : Archivo variable, Cormorant italique, DM Mono, typo cinétique, révélations et loupe WebGL. Ne pas réécrire les textes ni changer les effets sans demande. Photos dans leurs couleurs originales : aucun filtre rouge ou traitement global ajouté, même pendant leur apparition ou dans le WebGL. Galerie initiale de 12 vues sur mobile/tablette et 20 sur ordinateur, puis bouton pour tout afficher. Les 55 photos couvrent 8 thèmes ; 11 thèmes configurés, dont voyage non réservable et 3 prestations sans photos. Formulaire en modale, contact direct sans JavaScript, WebGL décoratif avec repli HTML.
 
 ## Configuration et vérification
 
-Source commune : dist/services.json. images.hero, images.aboutMain, images.aboutDetail et services[].photos utilisent src, alt, width, height, provisional et srcset facultatif. Formats locaux assets/ : jpg, jpeg, png, webp. Les mises en avant prennent la première image mariage/bapteme. Marquer les vraies photos provisional:false et retirer les références au provisoire dans leurs textes alternatifs.
+Source commune : dist/services.json. images.hero, images.aboutMain, images.aboutDetail et services[].photos utilisent src, alt, width, height, provisional et srcset facultatif. Formats locaux assets/ : jpg, jpeg, png, webp. La sélection horizontale utilise les photos avec select:true. Filtres, prestations et choix du formulaire sont générés depuis les thèmes ; bookable:false exclut une prestation, un thème sans photo n’a pas de filtre. Marquer les vraies photos provisional:false et retirer les références au provisoire dans leurs textes alternatifs.
 
 Après édition : node scripts/sync-content.mjs puis node scripts/sync-content.mjs --check. Cet outil actualise aussi le HTML et le snapshot JSON de secours. Garder ce snapshot synchronisé pour ne pas réintroduire les anciens visuels si le fetch échoue. Les liens de contact HTML doivent rester corrects sans JavaScript si les coordonnées changent.
 

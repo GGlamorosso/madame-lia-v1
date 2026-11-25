@@ -2,234 +2,570 @@
   "contact": {
     "whatsapp": "33767220949",
     "email": "liapellegrin22@gmail.com",
-    "socials": []
+    "socials": [
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/liashoots_/"
+      }
+    ]
   },
   "services": [
     {
       "id": "mariage",
       "title": "Mariage",
-      "group": "evenements",
-      "eyebrow": "LE GRAND OUI",
-      "featured": true,
+      "eyebrow": "Le grand oui",
+      "bookable": true,
       "photos": [
         {
-          "src": "assets/mariage-1.webp",
-          "alt": "Un couple de mariés dans un jardin méditerranéen — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/mariage-1-small.webp 720w, assets/mariage-1-medium.webp 1120w, assets/mariage-1.webp 1448w"
+          "src": "assets/mariage-01.webp",
+          "alt": "Au-dessus de la mer, un marié embrasse la joue de la mariée qui éclate de rire, en noir et blanc",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/mariage-01-480.webp 480w, assets/mariage-01-800.webp 800w, assets/mariage-01.webp 1200w",
+          "select": true
         },
         {
-          "src": "assets/mariage-2.webp",
-          "alt": "Un détail intime d’une journée de mariage — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/mariage-2-small.webp 720w, assets/mariage-2-medium.webp 1120w, assets/mariage-2.webp 1448w"
-        }
-      ]
-    },
-    {
-      "id": "bapteme",
-      "title": "Baptême",
-      "group": "evenements",
-      "eyebrow": "LES LIENS PRÉCIEUX",
-      "featured": true,
-      "photos": [
-        {
-          "src": "assets/bapteme-1.webp",
-          "alt": "Une famille réunie autour d’un bébé lors d’un baptême — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/bapteme-1-small.webp 720w, assets/bapteme-1-medium.webp 1120w, assets/bapteme-1.webp 1448w"
+          "src": "assets/mariage-02.webp",
+          "alt": "Les mariés sortent sous un porche de pierre, mains levées, la mariée en robe de satin, en noir et blanc",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/mariage-02-480.webp 480w, assets/mariage-02-800.webp 800w, assets/mariage-02.webp 1200w"
         },
         {
-          "src": "assets/bapteme-2.webp",
-          "alt": "Des mains et des détails tendres lors d’un baptême — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/bapteme-2-small.webp 720w, assets/bapteme-2-medium.webp 1120w, assets/bapteme-2.webp 1448w"
+          "src": "assets/mariage-03.webp",
+          "alt": "Gros plan sur les mains jointes des mariés assis côte à côte, en noir et blanc",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/mariage-03-480.webp 480w, assets/mariage-03-800.webp 800w, assets/mariage-03.webp 1200w"
+        },
+        {
+          "src": "assets/mariage-04.webp",
+          "alt": "La mariée pose la tête sur l’épaule du marié devant la mer, en noir et blanc",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/mariage-04-480.webp 480w, assets/mariage-04-800.webp 800w, assets/mariage-04.webp 1200w"
         }
       ]
     },
     {
       "id": "naissance",
       "title": "Naissance",
-      "group": "instants",
-      "eyebrow": "LES TOUT PREMIERS JOURS",
-      "featured": false,
+      "eyebrow": "Les tout premiers jours",
+      "bookable": true,
       "photos": [
         {
-          "src": "assets/naissance-1.webp",
-          "alt": "Un nouveau-né dans les bras d’un parent — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/naissance-1-small.webp 720w, assets/naissance-1-medium.webp 1120w, assets/naissance-1.webp 1448w"
+          "src": "assets/naissance-01.webp",
+          "alt": "Deux petits pieds de bébé tenus entre les doigts d’un adulte, en noir et blanc",
+          "width": 1200,
+          "height": 803,
+          "provisional": false,
+          "srcset": "assets/naissance-01-480.webp 480w, assets/naissance-01-800.webp 800w, assets/naissance-01.webp 1200w",
+          "select": true
         },
         {
-          "src": "assets/naissance-2.webp",
-          "alt": "Les premiers petits détails d’un nouveau-né — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/naissance-2-small.webp 720w, assets/naissance-2-medium.webp 1120w, assets/naissance-2.webp 1448w"
+          "src": "assets/naissance-02.webp",
+          "alt": "Un bébé coiffé d’un grand nœud regarde l’objectif, allongé sur le côté, en noir et blanc",
+          "width": 1200,
+          "height": 803,
+          "provisional": false,
+          "srcset": "assets/naissance-02-480.webp 480w, assets/naissance-02-800.webp 800w, assets/naissance-02.webp 1200w"
+        },
+        {
+          "src": "assets/naissance-03.webp",
+          "alt": "Les mains potelées d’un bébé serrées l’une contre l’autre, en noir et blanc",
+          "width": 1200,
+          "height": 800,
+          "provisional": false,
+          "srcset": "assets/naissance-03-480.webp 480w, assets/naissance-03-800.webp 800w, assets/naissance-03.webp 1200w"
+        },
+        {
+          "src": "assets/naissance-04.webp",
+          "alt": "Portrait d’un bébé au bandeau noué, le regard levé, en noir et blanc",
+          "width": 1200,
+          "height": 803,
+          "provisional": false,
+          "srcset": "assets/naissance-04-480.webp 480w, assets/naissance-04-800.webp 800w, assets/naissance-04.webp 1200w"
         }
       ]
     },
     {
-      "id": "anniversaire",
-      "title": "Anniversaire",
-      "group": "evenements",
-      "eyebrow": "UNE BOUGIE DE PLUS",
-      "featured": false,
+      "id": "famille",
+      "title": "Famille",
+      "eyebrow": "Ceux qui comptent",
+      "bookable": true,
       "photos": [
         {
-          "src": "assets/anniversaire-1.webp",
-          "alt": "Un anniversaire dans un jardin à la lumière du soir — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/anniversaire-1-small.webp 720w, assets/anniversaire-1-medium.webp 1120w, assets/anniversaire-1.webp 1448w"
+          "src": "assets/famille-01.webp",
+          "alt": "Un petit garçon rit aux éclats au premier plan, un autre se cache le visage derrière lui, en noir et blanc",
+          "width": 1200,
+          "height": 1063,
+          "provisional": false,
+          "srcset": "assets/famille-01-480.webp 480w, assets/famille-01-800.webp 800w, assets/famille-01.webp 1200w",
+          "select": true
         },
         {
-          "src": "assets/anniversaire-2.webp",
-          "alt": "Un gâteau et les détails d’un anniversaire partagé — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/anniversaire-2-small.webp 720w, assets/anniversaire-2-medium.webp 1120w, assets/anniversaire-2.webp 1448w"
+          "src": "assets/famille-02.webp",
+          "alt": "Deux femmes tête contre tête regardent un appareil photo, l’une en dentelle avec une fleur dans les cheveux, en noir et blanc",
+          "width": 1200,
+          "height": 1540,
+          "provisional": false,
+          "srcset": "assets/famille-02-480.webp 480w, assets/famille-02-800.webp 800w, assets/famille-02.webp 1200w"
+        },
+        {
+          "src": "assets/famille-03.webp",
+          "alt": "Une petite fille avec son cartable sourit en penchant la tête, en noir et blanc",
+          "width": 1200,
+          "height": 1547,
+          "provisional": false,
+          "srcset": "assets/famille-03-480.webp 480w, assets/famille-03-800.webp 800w, assets/famille-03.webp 1200w"
+        },
+        {
+          "src": "assets/famille-04.webp",
+          "alt": "Très gros plan sur le visage d’une petite fille aux boucles claires, en noir et blanc",
+          "width": 1200,
+          "height": 1540,
+          "provisional": false,
+          "srcset": "assets/famille-04-480.webp 480w, assets/famille-04-800.webp 800w, assets/famille-04.webp 1200w"
         }
       ]
     },
     {
       "id": "portrait",
       "title": "Portrait",
-      "group": "instants",
-      "eyebrow": "SIMPLEMENT VOUS",
-      "featured": false,
+      "eyebrow": "Simplement vous",
+      "bookable": true,
       "photos": [
         {
-          "src": "assets/portrait-1.webp",
-          "alt": "Un portrait dans une lumière méditerranéenne naturelle — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/portrait-1-small.webp 720w, assets/portrait-1-medium.webp 1120w, assets/portrait-1.webp 1448w"
+          "src": "assets/portrait-01.webp",
+          "alt": "Une jeune femme aux cheveux bouclés, le menton posé sur le poing, éclairée au flash dans la nuit",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/portrait-01-480.webp 480w, assets/portrait-01-800.webp 800w, assets/portrait-01.webp 1200w",
+          "select": true
         },
         {
-          "src": "assets/portrait-2.webp",
-          "alt": "Un autre regard, un détail de portrait — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/portrait-2-small.webp 720w, assets/portrait-2-medium.webp 1120w, assets/portrait-2.webp 1448w"
+          "src": "assets/portrait-02.webp",
+          "alt": "Une jeune femme à lunettes en manteau de fourrure clair, cheveux au vent devant des roseaux",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/portrait-02-480.webp 480w, assets/portrait-02-800.webp 800w, assets/portrait-02.webp 1200w"
+        },
+        {
+          "src": "assets/portrait-03.webp",
+          "alt": "Une jeune femme de profil au crépuscule, épaules dénudées, une guirlande lumineuse derrière elle",
+          "width": 1200,
+          "height": 1596,
+          "provisional": false,
+          "srcset": "assets/portrait-03-480.webp 480w, assets/portrait-03-800.webp 800w, assets/portrait-03.webp 1200w"
+        },
+        {
+          "src": "assets/portrait-04.webp",
+          "alt": "Une jeune femme rit les yeux fermés, la tête dans le creux du bras, éclairée au flash",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/portrait-04-480.webp 480w, assets/portrait-04-800.webp 800w, assets/portrait-04.webp 1200w"
+        },
+        {
+          "src": "assets/portrait-05.webp",
+          "alt": "Un jeune homme accoudé au bord d’une piscine se cache le visage dans les mains, vu d’en haut",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/portrait-05-480.webp 480w, assets/portrait-05-800.webp 800w, assets/portrait-05.webp 1200w"
+        },
+        {
+          "src": "assets/portrait-06.webp",
+          "alt": "Portrait serré d’une jeune femme à lunettes teintées, bras croisés dans un manteau de fourrure, devant un étang",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/portrait-06-480.webp 480w, assets/portrait-06-800.webp 800w, assets/portrait-06.webp 1200w"
+        },
+        {
+          "src": "assets/portrait-07.webp",
+          "alt": "Une jeune femme, bras relevés derrière la tête, regarde de côté, en noir et blanc",
+          "width": 930,
+          "height": 600,
+          "provisional": false,
+          "srcset": "assets/portrait-07-480.webp 480w, assets/portrait-07-800.webp 800w, assets/portrait-07.webp 930w"
+        },
+        {
+          "src": "assets/portrait-08.webp",
+          "alt": "De dos, une femme en long manteau de fourrure s’éloigne sur une allée d’automne",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/portrait-08-480.webp 480w, assets/portrait-08-800.webp 800w, assets/portrait-08.webp 1200w"
+        },
+        {
+          "src": "assets/portrait-09.webp",
+          "alt": "Une jeune femme, le visage à demi caché par ses cheveux, en noir et blanc",
+          "width": 829,
+          "height": 535,
+          "provisional": false,
+          "srcset": "assets/portrait-09-480.webp 480w, assets/portrait-09-800.webp 800w, assets/portrait-09.webp 829w"
         }
       ]
     },
     {
-      "id": "voiture",
-      "title": "Voiture",
-      "group": "professionnels",
-      "eyebrow": "L’ALLURE EN IMAGES",
-      "featured": false,
+      "id": "mode",
+      "title": "Mode",
+      "eyebrow": "Matières et silhouettes",
+      "bookable": true,
       "photos": [
         {
-          "src": "assets/voiture-1.webp",
-          "alt": "Une voiture ancienne sur une route du littoral — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/voiture-1-small.webp 720w, assets/voiture-1-medium.webp 1120w, assets/voiture-1.webp 1448w"
+          "src": "assets/mode-01.webp",
+          "alt": "Un mannequin de profil ajuste sa casquette grise, en veste croisée sombre et jupe en denim, sur fond clair",
+          "width": 1178,
+          "height": 1570,
+          "provisional": false,
+          "srcset": "assets/mode-01-480.webp 480w, assets/mode-01-800.webp 800w, assets/mode-01.webp 1178w"
         },
         {
-          "src": "assets/voiture-2.webp",
-          "alt": "Un détail de carrosserie et ses reflets — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/voiture-2-small.webp 720w, assets/voiture-2-medium.webp 1120w, assets/voiture-2.webp 1448w"
-        }
-      ]
-    },
-    {
-      "id": "restaurant",
-      "title": "Restaurant",
-      "group": "professionnels",
-      "eyebrow": "LE GOÛT DU BEAU",
-      "featured": false,
-      "photos": [
-        {
-          "src": "assets/restaurant-1.webp",
-          "alt": "Une table et l’atmosphère d’un restaurant méditerranéen — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/restaurant-1-small.webp 720w, assets/restaurant-1-medium.webp 1120w, assets/restaurant-1.webp 1448w"
+          "src": "assets/mode-02.webp",
+          "alt": "Des bustes de couture blancs alignés devant un mur jaune",
+          "width": 1176,
+          "height": 1568,
+          "provisional": false,
+          "srcset": "assets/mode-02-480.webp 480w, assets/mode-02-800.webp 800w, assets/mode-02.webp 1176w"
         },
         {
-          "src": "assets/restaurant-2.webp",
-          "alt": "Une composition de cuisine et de matières naturelles — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/restaurant-2-small.webp 720w, assets/restaurant-2-medium.webp 1120w, assets/restaurant-2.webp 1448w"
+          "src": "assets/mode-03.webp",
+          "alt": "Le mannequin, tête baissée sous sa casquette, une main posée sur la veste croisée",
+          "width": 1159,
+          "height": 1545,
+          "provisional": false,
+          "srcset": "assets/mode-03-480.webp 480w, assets/mode-03-800.webp 800w, assets/mode-03.webp 1159w"
+        },
+        {
+          "src": "assets/mode-04.webp",
+          "alt": "Un bocal en verre rempli de boutons multicolores",
+          "width": 1183,
+          "height": 1577,
+          "provisional": false,
+          "srcset": "assets/mode-04-480.webp 480w, assets/mode-04-800.webp 800w, assets/mode-04.webp 1183w"
         }
       ]
     },
     {
       "id": "evenement",
       "title": "Événement",
-      "group": "evenements",
-      "eyebrow": "L’ÉNERGIE DU MOMENT",
-      "featured": false,
+      "eyebrow": "L’énergie du moment",
+      "bookable": true,
       "photos": [
         {
-          "src": "assets/evenement-1.webp",
-          "alt": "Des rencontres lors d’un événement en plein air — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/evenement-1-small.webp 720w, assets/evenement-1-medium.webp 1120w, assets/evenement-1.webp 1448w"
+          "src": "assets/evenement-01.webp",
+          "alt": "Un jeune homme en uniforme d’époque, bicorne à plumes bleues et blanches, regarde l’objectif, sabre à l’épaule",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-01-480.webp 480w, assets/evenement-01-800.webp 800w, assets/evenement-01.webp 1200w",
+          "select": true
         },
         {
-          "src": "assets/evenement-2.webp",
-          "alt": "Un instant spontané lors d’un événement — visuel d’ambiance provisoire",
-          "width": 1448,
-          "height": 1086,
-          "provisional": true,
-          "srcset": "assets/evenement-2-small.webp 720w, assets/evenement-2-medium.webp 1120w, assets/evenement-2.webp 1448w"
+          "src": "assets/evenement-02.webp",
+          "alt": "Des hommes en tenue de marin tirent une salve de tromblons, flammes et fumée au-dessus de la rue",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-02-480.webp 480w, assets/evenement-02-800.webp 800w, assets/evenement-02.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-03.webp",
+          "alt": "De dos, un homme en uniforme bleu et rouge s’éloigne dans une ruelle étroite",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-03-480.webp 480w, assets/evenement-03-800.webp 800w, assets/evenement-03.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-04.webp",
+          "alt": "Un petit garçon en béret rouge et marinière touche une statue dorée ornée de fleurs blanches",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-04-480.webp 480w, assets/evenement-04-800.webp 800w, assets/evenement-04.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-05.webp",
+          "alt": "Un officier de profil en uniforme d’époque, bicorne à plumes bleues, sabre au clair",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-05-480.webp 480w, assets/evenement-05-800.webp 800w, assets/evenement-05.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-06.webp",
+          "alt": "Des femmes en costume provençal, chapeaux de paille et jupes rayées, alignées de profil",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-06-480.webp 480w, assets/evenement-06-800.webp 800w, assets/evenement-06.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-07.webp",
+          "alt": "Dans un nuage de fumée, une silhouette en uniforme brandit un drapeau rouge et blanc",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-07-480.webp 480w, assets/evenement-07-800.webp 800w, assets/evenement-07.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-08.webp",
+          "alt": "Un enfant en béret rouge marche main dans la main avec deux hommes en chapeau noir, pendant un défilé",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-08-480.webp 480w, assets/evenement-08-800.webp 800w, assets/evenement-08.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-09.webp",
+          "alt": "Des chapeaux de paille à large bord au premier plan, des visages souriants en arrière-plan",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-09-480.webp 480w, assets/evenement-09-800.webp 800w, assets/evenement-09.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-10.webp",
+          "alt": "Des femmes en coiffe de dentelle blanche vues de dos pendant une fête traditionnelle",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-10-480.webp 480w, assets/evenement-10-800.webp 800w, assets/evenement-10.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-11.webp",
+          "alt": "Une foule de bérets à pompon rouge devant une façade orange au soleil couchant",
+          "width": 1200,
+          "height": 1595,
+          "provisional": false,
+          "srcset": "assets/evenement-11-480.webp 480w, assets/evenement-11-800.webp 800w, assets/evenement-11.webp 1200w"
+        },
+        {
+          "src": "assets/evenement-12.webp",
+          "alt": "Des mains réunies sur un ballon de basket avant un match, en noir et blanc",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/evenement-12-480.webp 480w, assets/evenement-12-800.webp 800w, assets/evenement-12.webp 1200w"
         }
       ]
+    },
+    {
+      "id": "voiture",
+      "title": "Voiture",
+      "eyebrow": "L’allure en images",
+      "bookable": true,
+      "photos": [
+        {
+          "src": "assets/voiture-01.webp",
+          "alt": "Une berline sombre et un SUV vert garés devant un mur de pierre, sous les pins",
+          "width": 1200,
+          "height": 804,
+          "provisional": false,
+          "srcset": "assets/voiture-01-480.webp 480w, assets/voiture-01-800.webp 800w, assets/voiture-01.webp 1200w"
+        },
+        {
+          "src": "assets/voiture-02.webp",
+          "alt": "Détail de la calandre et de la jante d’une berline bordeaux",
+          "width": 1200,
+          "height": 800,
+          "provisional": false,
+          "srcset": "assets/voiture-02-480.webp 480w, assets/voiture-02-800.webp 800w, assets/voiture-02.webp 1200w"
+        },
+        {
+          "src": "assets/voiture-03.webp",
+          "alt": "Un SUV vert bouteille vu de trois quarts avant, en plein soleil",
+          "width": 1200,
+          "height": 804,
+          "provisional": false,
+          "srcset": "assets/voiture-03-480.webp 480w, assets/voiture-03-800.webp 800w, assets/voiture-03.webp 1200w"
+        },
+        {
+          "src": "assets/voiture-04.webp",
+          "alt": "Le volant et le tableau de bord d’un SUV, vus depuis la portière",
+          "width": 1200,
+          "height": 800,
+          "provisional": false,
+          "srcset": "assets/voiture-04-480.webp 480w, assets/voiture-04-800.webp 800w, assets/voiture-04.webp 1200w"
+        }
+      ]
+    },
+    {
+      "id": "voyage",
+      "title": "Voyage",
+      "eyebrow": "Carnets personnels",
+      "bookable": false,
+      "photos": [
+        {
+          "src": "assets/voyage-01.webp",
+          "alt": "Un homme en casquette marche devant une case blanche au toit de tôle orange",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/voyage-01-480.webp 480w, assets/voyage-01-800.webp 800w, assets/voyage-01.webp 1200w",
+          "select": true
+        },
+        {
+          "src": "assets/voyage-02.webp",
+          "alt": "Une femme allongée sur une jetée au coucher du soleil, un village en face sur la baie",
+          "width": 1042,
+          "height": 1156,
+          "provisional": false,
+          "srcset": "assets/voyage-02-480.webp 480w, assets/voyage-02-800.webp 800w, assets/voyage-02.webp 1042w"
+        },
+        {
+          "src": "assets/voyage-03.webp",
+          "alt": "Un pêcheur debout sur sa barque, en silhouette sur un coucher de soleil orange",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/voyage-03-480.webp 480w, assets/voyage-03-800.webp 800w, assets/voyage-03.webp 1200w"
+        },
+        {
+          "src": "assets/voyage-04.webp",
+          "alt": "Un ara rouge aux ailes jaunes et bleues perché dans les feuillages",
+          "width": 1200,
+          "height": 1595,
+          "provisional": false,
+          "srcset": "assets/voyage-04-480.webp 480w, assets/voyage-04-800.webp 800w, assets/voyage-04.webp 1200w"
+        },
+        {
+          "src": "assets/voyage-05.webp",
+          "alt": "Un poste de secours rose et jaune sur une plage, dans une lumière blanche",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/voyage-05-480.webp 480w, assets/voyage-05-800.webp 800w, assets/voyage-05.webp 1200w"
+        },
+        {
+          "src": "assets/voyage-06.webp",
+          "alt": "La silhouette d’une femme de profil devant la mer argentée",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/voyage-06-480.webp 480w, assets/voyage-06-800.webp 800w, assets/voyage-06.webp 1200w"
+        },
+        {
+          "src": "assets/voyage-07.webp",
+          "alt": "Des pentes enneigées ponctuées de quelques sapins isolés",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/voyage-07-480.webp 480w, assets/voyage-07-800.webp 800w, assets/voyage-07.webp 1200w"
+        },
+        {
+          "src": "assets/voyage-08.webp",
+          "alt": "Des reliefs volcaniques rouges et ocre sous un rempart verdoyant",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/voyage-08-480.webp 480w, assets/voyage-08-800.webp 800w, assets/voyage-08.webp 1200w"
+        },
+        {
+          "src": "assets/voyage-09.webp",
+          "alt": "Une lanterne et un clocher dans la lumière dorée du soir",
+          "width": 1022,
+          "height": 1538,
+          "provisional": false,
+          "srcset": "assets/voyage-09-480.webp 480w, assets/voyage-09-800.webp 800w, assets/voyage-09.webp 1022w"
+        },
+        {
+          "src": "assets/voyage-10.webp",
+          "alt": "Un singe capucin à face blanche sur une branche, le regard vers l’objectif",
+          "width": 1200,
+          "height": 1595,
+          "provisional": false,
+          "srcset": "assets/voyage-10-480.webp 480w, assets/voyage-10-800.webp 800w, assets/voyage-10.webp 1200w"
+        },
+        {
+          "src": "assets/voyage-11.webp",
+          "alt": "Une petite fille de dos regarde la mer au crépuscule",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/voyage-11-480.webp 480w, assets/voyage-11-800.webp 800w, assets/voyage-11.webp 1200w"
+        },
+        {
+          "src": "assets/voyage-12.webp",
+          "alt": "Un grand voilier à trois mâts sur la mer, dans la brume dorée du soir",
+          "width": 1010,
+          "height": 1080,
+          "provisional": false,
+          "srcset": "assets/voyage-12-480.webp 480w, assets/voyage-12-800.webp 800w, assets/voyage-12.webp 1010w"
+        },
+        {
+          "src": "assets/voyage-13.webp",
+          "alt": "Le toit couvert de neige d’un chalet en bois, devant une forêt de mélèzes",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/voyage-13-480.webp 480w, assets/voyage-13-800.webp 800w, assets/voyage-13.webp 1200w"
+        },
+        {
+          "src": "assets/voyage-14.webp",
+          "alt": "Un oiseau au long cou perché sur un tronc, sous la pluie, devant une prairie verte",
+          "width": 1200,
+          "height": 1600,
+          "provisional": false,
+          "srcset": "assets/voyage-14-480.webp 480w, assets/voyage-14-800.webp 800w, assets/voyage-14.webp 1200w"
+        }
+      ]
+    },
+    {
+      "id": "bapteme",
+      "title": "Baptême",
+      "eyebrow": "Les liens précieux",
+      "bookable": true,
+      "photos": []
+    },
+    {
+      "id": "anniversaire",
+      "title": "Anniversaire",
+      "eyebrow": "Une bougie de plus",
+      "bookable": true,
+      "photos": []
+    },
+    {
+      "id": "restaurant",
+      "title": "Restaurant",
+      "eyebrow": "Le goût du beau",
+      "bookable": true,
+      "photos": []
     }
   ],
   "images": {
     "hero": {
-      "src": "assets/saint-tropez.webp",
-      "alt": "Depuis les hauteurs de Saint-Tropez, le clocher et les toits ocre devant le golfe parsemé de voiliers — visuel d’ambiance provisoire",
-      "width": 1672,
-      "height": 941,
-      "srcset": "assets/saint-tropez-small.webp 720w, assets/saint-tropez-medium.webp 1120w, assets/saint-tropez.webp 1672w",
-      "provisional": true
+      "src": "assets/mariage-01.webp",
+      "alt": "Au-dessus de la mer, un marié embrasse la joue de la mariée qui éclate de rire, en noir et blanc",
+      "width": 1200,
+      "height": 1600,
+      "provisional": false,
+      "srcset": "assets/mariage-01-480.webp 480w, assets/mariage-01-800.webp 800w, assets/mariage-01.webp 1200w"
     },
     "aboutMain": {
-      "src": "assets/lia-studio.webp",
-      "alt": "Une photographe de dos dans un atelier lumineux — image d’ambiance provisoire, portrait de Lia à venir",
-      "width": 1086,
-      "height": 1448,
-      "srcset": "assets/lia-studio-small.webp 720w, assets/lia-studio.webp 1086w",
-      "provisional": true
+      "src": "assets/about-main.webp",
+      "alt": "Autoportrait au miroir : une jeune femme tient un appareil photo à bout de bras, en noir et blanc",
+      "width": 1200,
+      "height": 1547,
+      "provisional": false,
+      "srcset": "assets/about-main-480.webp 480w, assets/about-main-800.webp 800w, assets/about-main.webp 1200w"
     },
     "aboutDetail": {
-      "src": "assets/lia-detail.webp",
-      "alt": "Des mains tenant un appareil photo dans un atelier — image d’ambiance provisoire",
-      "width": 1122,
-      "height": 1402,
-      "srcset": "assets/lia-detail-small.webp 720w, assets/lia-detail-medium.webp 1120w, assets/lia-detail.webp 1122w",
-      "provisional": true
+      "src": "assets/about-detail.webp",
+      "alt": "Très gros plan sur un regard, en noir et blanc",
+      "width": 930,
+      "height": 600,
+      "provisional": false,
+      "srcset": "assets/about-detail-480.webp 480w, assets/about-detail-800.webp 800w, assets/about-detail.webp 930w"
     }
   }
 }
