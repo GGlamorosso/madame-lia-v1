@@ -1,5 +1,4 @@
 @media (prefers-reduced-motion:no-preference) {
-  @view-transition { navigation:auto; }
   html[data-labo="transitions"] .site-header { view-transition-name: masthead; }
   html[data-labo="transitions"] .wordmark { view-transition-name: signature; }
   html[data-labo="transitions"]:not([data-morph])::view-transition-old(root) { animation:none; }
@@ -21,4 +20,13 @@
     .theme-thumb {transition:scale .4s;}
     .theme-row.is-centered .theme-thumb {scale:1.14;}
   }
+}
+
+/* Conserver l’opt-in pendant une navigation, même si la préférence change. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) {
+    animation: none !important;
+    mix-blend-mode: normal;
+  }
+  ::view-transition-old(*) { opacity: 0; }
 }

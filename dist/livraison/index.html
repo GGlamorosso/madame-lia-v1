@@ -22,6 +22,12 @@
   } catch { /* Le lien fonctionne aussi quand le stockage est désactivé. */ }
   if (!choices.includes(name)) return;
   document.documentElement.dataset.labo = name;
+  // Chrome doit connaître le choix dès le premier rendu de la page entrante.
+  if (name === 'transitions') {
+    const rules = document.createElement('style');
+    rules.textContent = '@view-transition { navigation: auto; }';
+    document.head.append(rules);
+  }
   const link = document.createElement('link');
   link.rel = 'stylesheet';
   link.href = '/labo/' + name + '.css';
