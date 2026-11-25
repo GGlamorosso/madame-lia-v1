@@ -55,7 +55,19 @@ const partials = {};
 for (const name of ['sprite', 'header', 'footer', 'cta-bar']) partials[name] = (await readFile(new URL(`${name}.html`, templates), 'utf8')).trim();
 const bookable = data.services.filter(service => service.bookable !== false);
 const lazyImage = (photo, sizes) => `<img src="${escape(asset(photo.src))}"${photo.srcset ? ` srcset="${escape(assetSet(photo.srcset))}" sizes="${sizes}"` : ''} alt="${escape(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async">`;
+// Accueil : même ordre que mixedPhotos() dans app.js (les thèmes alternent), photo d'ouverture en tête.
+const reelSizes = '(min-width: 900px) 34vw, 78vw';
+function selectionList() {
+  const groups = data.services.filter(service => service.photos.length).map(service => service.photos.map(photo => ({ ...photo, title: service.title })));
+  const mixed = [];
+  for (let index = 0; index < Math.max(0, ...groups.map(group => group.length)); index++) groups.forEach(group => { if (group[index]) mixed.push(group[index]); });
+  const opening = mixed.find(photo => photo.src === data.images.hero.src) || { ...data.images.hero, title: '' };
+  return [opening, ...mixed.filter(photo => photo.select && photo.src !== opening.src)];
+}
+const reelImage = (photo, index) => `<img${index === 0 ? ' data-image="hero" fetchpriority="high"' : ''} src="${escape(asset(photo.src))}"${photo.srcset ? ` srcset="${escape(assetSet(photo.srcset))}" sizes="${reelSizes}"` : ''} alt="${escape(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="${index < 3 ? 'eager' : 'lazy'}" decoding="async">`;
 const generated = {
+  // Accueil : pellicule d'ouverture, présente dans le HTML (visible sans JavaScript).
+  selection: () => selectionList().map((photo, index) => `<figure class="strip-item" style="aspect-ratio:${photo.width}/${photo.height}"><button class="dev" type="button" data-select-index="${index}" aria-label="Agrandir : ${escape(photo.title || photo.alt)}">${reelImage(photo, index)}</button>${photo.title ? `<figcaption class="mono">${escape(photo.title)}</figcaption>` : ''}</figure>`).join(''),
   // À propos : les prestations, vers le filtre du portfolio ou vers WhatsApp sans galerie.
   themes: () => bookable.map(service => service.photos.length
     ? `<li><a href="/?theme=${escape(service.id)}#portfolio">${escape(service.title)}</a></li>`
@@ -85,7 +97,7 @@ function render(html, pagePath) {
     return tag;
   });
   const hero = data.images.hero;
-  html = html.replace(/<link rel="preload"[^>]*as="image"[^>]*>/, `<link rel="preload" as="image" href="${escape(asset(hero.src))}"${hero.srcset ? ` imagesrcset="${escape(assetSet(hero.srcset))}" imagesizes="(min-width: 900px) 30vw, 74vw"` : ''} fetchpriority="high">`);
+  html = html.replace(/<link rel="preload"[^>]*as="image"[^>]*>/, `<link rel="preload" as="image" href="${escape(asset(hero.src))}"${hero.srcset ? ` imagesrcset="${escape(assetSet(hero.srcset))}" imagesizes="${reelSizes}"` : ''} fetchpriority="high">`);
 
   // Coordonnées et réseaux écrits en dur (les messages préremplis ?text= sont conservés).
   html = html.replace(/https:\/\/wa\.me\/\d+/g, `https://wa.me/${whatsapp}`);

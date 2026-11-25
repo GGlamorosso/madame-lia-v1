@@ -1,4 +1,4 @@
-// Accueil : sélection, planche-contact, prestations, visionneuse, typo cinétique et scènes WebGL.
+// Accueil : pellicule d'ouverture, planche-contact, prestations, visionneuse, typo cinétique et scène WebGL.
 // Dépend de site.js (chargé avant, en defer).
 (() => {
   'use strict';
@@ -40,16 +40,57 @@
     for (let index = 0; index < longest; index++) groups.forEach(group => { if (group[index]) mixed.push(group[index]); });
     return mixed;
   }
-  const imageTag = (photo, sizes, eager = false) => `<img src="${escape(photo.src)}" srcset="${escape(photo.srcset || photo.src)}" sizes="${sizes}" alt="${escape(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="${eager ? 'eager' : 'lazy'}" decoding="async">`;
+  const imageTag = (photo, sizes, eager = false, key = '') => `<img${key ? ` data-image="${key}" fetchpriority="high"` : ''} src="${escape(photo.src)}"${photo.srcset ? ` srcset="${escape(photo.srcset)}" sizes="${sizes}"` : ''} alt="${escape(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="${eager ? 'eager' : 'lazy'}" decoding="async">`;
 
-  /* ---------- Sélection ---------- */
-  function renderSelection() {
-    selectionPhotos = mixedPhotos().filter(photo => photo.select);
-    const strip = $('#selection-strip');
-    $('#selection').hidden = !selectionPhotos.length;
-    strip.innerHTML = selectionPhotos.map((photo, index) => `<figure class="strip-item" style="aspect-ratio:${photo.width}/${photo.height}" data-reveal><button class="dev" type="button" data-select-index="${index}" aria-label="Agrandir : ${escape(photo.title)}">${imageTag(photo, '(min-width: 900px) 40vw, 80vw', index < 2)}</button><figcaption class="mono">${escape(photo.title)}</figcaption></figure>`).join('');
-    observeReveals(strip);
+  /* ---------- Pellicule d'ouverture ---------- */
+  // Même balisage que le bloc généré par scripts/sync-content.mjs : la photo d'ouverture (images.hero),
+  // puis les vues marquées select:true. En mouvement, une seconde série masquée permet une boucle sans fin.
+  const reelSizes = '(min-width: 900px) 34vw, 78vw';
+  function selectionList() {
+    const mixed = mixedPhotos();
+    const opening = mixed.find(photo => photo.src === images.hero.src) || { ...images.hero, title: '' };
+    return [opening, ...mixed.filter(photo => photo.select && photo.src !== opening.src)];
   }
+  const stripItem = (photo, index, clone = false) => `<figure class="strip-item${clone ? ' is-clone' : ''}" style="aspect-ratio:${photo.width}/${photo.height}"${clone ? ' aria-hidden="true"' : ''}><button class="dev" type="button" data-select-index="${index}"${clone ? ' tabindex="-1"' : ` aria-label="Agrandir : ${escape(photo.title || photo.alt)}"`}>${imageTag(photo, reelSizes, !clone && index < 3, !clone && index === 0 ? 'hero' : '')}</button>${photo.title ? `<figcaption class="mono">${escape(photo.title)}</figcaption>` : ''}</figure>`;
+  function renderSelection() {
+    selectionPhotos = selectionList();
+    const strip = $('#selection-strip');
+    strip.hidden = !selectionPhotos.length;
+    const clones = motion() ? selectionPhotos.map((photo, index) => stripItem(photo, index, true)).join('') : '';
+    strip.innerHTML = selectionPhotos.map((photo, index) => stripItem(photo, index)).join('') + clones;
+    reel.reset();
+  }
+  // Défilement automatique et lent ; il s'arrête au survol, au toucher, au clavier, visionneuse ouverte
+  // ou hors écran, et jamais en mouvement réduit. Le glisser manuel reste possible.
+  const reel = (() => {
+    const strip = $('#selection-strip');
+    let position = 0, loop = 0, last = 0, frame = 0, holdUntil = 0, hovered = false, visible = false;
+    const measure = () => {
+      const clone = strip.querySelector('.is-clone');
+      loop = clone && strip.firstElementChild ? clone.offsetLeft - strip.firstElementChild.offsetLeft : 0;
+    };
+    const hold = (ms = 2600) => { holdUntil = performance.now() + ms; };
+    const paused = now => !motion() || hovered || now < holdUntil || strip.contains(document.activeElement) || $$('dialog').some(dialog => dialog.open);
+    function tick(now) {
+      frame = visible ? requestAnimationFrame(tick) : 0;
+      const delta = Math.min(64, now - (last || now));
+      last = now;
+      if (!loop || paused(now)) { position = strip.scrollLeft; return; }
+      position += (desktop.matches ? 40 : 28) * delta / 1000;
+      if (position >= loop) position -= loop;
+      strip.scrollLeft = position;
+    }
+    const run = () => { if (!frame && visible) { last = 0; frame = requestAnimationFrame(tick); } };
+    ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(type => strip.addEventListener(type, () => hold(), { passive: true }));
+    strip.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') hovered = true; });
+    strip.addEventListener('pointerleave', () => { hovered = false; hold(700); });
+    strip.addEventListener('scroll', () => {
+      if (loop && strip.scrollLeft >= loop) { strip.scrollLeft -= loop; position = strip.scrollLeft; }
+    }, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(strip);
+    if ('IntersectionObserver' in window) new IntersectionObserver(entries => { visible = entries[0].isIntersecting; run(); }).observe(strip);
+    return { reset() { measure(); position = 0; strip.scrollLeft = 0; run(); } };
+  })();
 
   /* ---------- Planche-contact ---------- */
   function renderFilters() {
@@ -229,13 +270,13 @@
   function applyContent(data) {
     services = data.services.map(service => ({ ...service, photos: service.photos.map(rooted) }));
     images = Object.fromEntries(Object.entries(data.images).map(([key, photo]) => [key, rooted(photo)]));
-    Object.entries(images).forEach(([key, photo]) => setImage($(`[data-image="${key}"]`), photo));
     if (activeFilter !== 'all' && !withPhotos().some(service => service.id === activeFilter)) activeFilter = 'all';
     $('[data-about-provisional]').hidden = ![images.aboutMain, images.aboutDetail].some(photo => photo.provisional);
     const provisional = [...Object.values(images), ...services.flatMap(service => service.photos)].some(photo => photo.provisional);
     $$('[data-site-provisional]').forEach(element => { element.hidden = !provisional; });
     Object.assign(contact, data.contact);
     renderThemes(); renderSelection(); renderFilters(); renderSheet();
+    Object.entries(images).forEach(([key, photo]) => setImage($(`[data-image="${key}"]`), photo));
     // Coordonnées : le numéro change, le message prérempli éventuel est conservé.
     $$('a[href^="https://wa.me/"]').forEach(link => { link.href = link.href.replace(/^https:\/\/wa\.me\/\d+/, `https://wa.me/${contact.whatsapp}`); });
     $$('a[href^="mailto:"]').forEach(link => { link.href = `mailto:${contact.email}`; });
@@ -282,7 +323,6 @@
     const selects = mixedPhotos().filter(photo => photo.select && photo.src !== images.hero.src);
     const colourful = selects.find(photo => photo.serviceId === 'evenement') || selects[0] || images.hero;
     import('/gl.js').then(module => module.start({
-      hero: { canvas: $('#hero-canvas'), section: $('.hero'), frame: $('.hero-frame'), image: $('.hero-image'), sides: selects.slice(0, 4).map(small) },
       closing: { canvas: $('#closing-canvas'), section: $('.closing'), src: medium(colourful) },
       reducedMotion
     })).catch(() => { /* Sans WebGL, les images fixes restent en place. */ });

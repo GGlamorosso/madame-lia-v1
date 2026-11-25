@@ -1,4 +1,4 @@
-// Scènes WebGL de Madame Lia : tirages flottants en perspective, sans loupe ni filtre.
+// Scène WebGL de liashoots : tirage en perspective dans la section de contact, sans loupe ni filtre.
 // Écrit sans dépendance. Tout ici est décoratif : si quoi que ce soit échoue,
 // les images HTML restent affichées telles quelles.
 
@@ -207,47 +207,6 @@ function createStage({ canvas, section, layout, reducedMotion }) {
   return { gl };
 }
 
-async function startHero({ canvas, section, frame, image, sides, reducedMotion }) {
-  const images = await Promise.all([loadImage(image), ...sides.map(source => loadImage(source).catch(() => null))]);
-  let main, others = [];
-  // Position des tirages secondaires, en multiples du cadre principal.
-  const narrow = [
-    { dx: -0.92, dy: 0.20, scale: 0.72, z: -520, rotY: 0.34, alpha: 0.62 },
-    { dx: 0.95, dy: -0.16, scale: 0.66, z: -640, rotY: -0.36, alpha: 0.55 },
-    { dx: 0.70, dy: 0.86, scale: 0.50, z: -300, rotY: -0.22, alpha: 0.70 },
-    { dx: -0.74, dy: -0.72, scale: 0.44, z: -820, rotY: 0.20, alpha: 0.42 }
-  ];
-  const wide = [
-    { dx: -1.42, dy: -0.10, scale: 0.74, z: -420, rotY: 0.30, alpha: 0.70 },
-    { dx: 1.26, dy: 0.20, scale: 0.66, z: -560, rotY: -0.34, alpha: 0.60 },
-    { dx: -2.72, dy: 0.30, scale: 0.60, z: -760, rotY: 0.36, alpha: 0.50 },
-    { dx: -0.30, dy: -1.05, scale: 0.40, z: -980, rotY: 0.12, alpha: 0.40 }
-  ];
-  const stage = createStage({
-    canvas, section, reducedMotion,
-    layout({ width, height, time, progress, canvasBox }) {
-      const box = frame.getBoundingClientRect();
-      const centerX = box.left - canvasBox.left + box.width / 2 - width / 2;
-      const centerY = height / 2 - (box.top - canvasBox.top + box.height / 2);
-      const slots = width > height ? wide : narrow;
-      const planes = [{ texture: main.texture, x: centerX, y: centerY + progress * height * 0.10, z: 0, w: box.width, h: box.height, uvX: Math.min(1, (box.width / box.height) / main.aspect), uvY: Math.min(1, main.aspect / (box.width / box.height)), sway: 0.6 }];
-      others.forEach((item, index) => {
-        const slot = slots[index];
-        const h = box.height * slot.scale, w = h * item.aspect;
-        const float = Math.sin(time * 0.5 + index * 1.7) * 10;
-        planes.push({
-          texture: item.texture, w, h, z: slot.z, alpha: slot.alpha, rotY: slot.rotY + Math.sin(time * 0.3 + index) * 0.04,
-          x: centerX + slot.dx * box.width * (1 + progress * 0.35),
-          y: centerY + slot.dy * box.height + float + progress * height * (0.22 + index * 0.07)
-        });
-      });
-      return planes;
-    }
-  });
-  main = createTexture(stage.gl, images[0]);
-  others = images.slice(1).filter(Boolean).map(item => createTexture(stage.gl, item));
-}
-
 async function startClosing({ canvas, section, src, reducedMotion }) {
   const image = await loadImage(src);
   let photo;
@@ -261,10 +220,9 @@ async function startClosing({ canvas, section, src, reducedMotion }) {
   photo = createTexture(stage.gl, image);
 }
 
-export function start({ hero, closing, reducedMotion }) {
+export function start({ closing, reducedMotion }) {
   const guard = promise => promise.catch(() => { /* scène ignorée : l'image fixe reste visible */ });
-  guard(startHero({ ...hero, reducedMotion }));
-  // La seconde scène n'est préparée qu'à l'approche de la section.
+  // La scène n'est préparée qu'à l'approche de la section.
   const observer = new IntersectionObserver(entries => {
     if (!entries.some(entry => entry.isIntersecting)) return;
     observer.disconnect();

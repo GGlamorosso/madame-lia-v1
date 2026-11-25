@@ -12,7 +12,8 @@ const original = await (await fetch(new URL('services.json', baseURL))).json();
 const photoCount = original.services.reduce((n, service) => n + service.photos.length, 0);
 const photographed = original.services.filter(service => service.photos.length);
 const bookable = original.services.filter(service => service.bookable !== false);
-const selectedCount = original.services.flatMap(service => service.photos).filter(photo => photo.select).length;
+// Pellicule d'ouverture : la photo d'ouverture (images.hero) puis les vues select:true.
+const selectedCount = 1 + original.services.flatMap(service => service.photos).filter(photo => photo.select && photo.src !== original.images.hero.src).length;
 const report = [];
 let checks = 0;
 const ok = (value, message) => { assert.ok(value, message); checks++; };
@@ -53,7 +54,7 @@ try {
       missingAlts: [...document.images].filter(image => !image.hasAttribute('alt')).length,
       brokenAnchors: [...document.querySelectorAll('a[href^="#"]')].filter(link => !document.getElementById(link.getAttribute('href').slice(1))).length,
       hiddenContent: [...document.querySelectorAll('[data-reveal]')].filter(element => getComputedStyle(element).opacity !== '1').length,
-      clippedTitles: [...document.querySelectorAll('h1,h2,.theme-name')].filter(element => element.scrollWidth > element.clientWidth + 2).map(element => element.textContent),
+      clippedTitles: [...document.querySelectorAll('h1,h2,.theme-name')].filter(element => element.clientWidth > 1 && element.scrollWidth > element.clientWidth + 2).map(element => element.textContent),
       background: getComputedStyle(document.body).backgroundColor,
       headingFont: getComputedStyle(document.querySelector('h1')).fontFamily,
       bodyFont: getComputedStyle(document.body).fontFamily
@@ -71,7 +72,11 @@ try {
     ok(state.height < 10000, 'Page initiale de longueur maîtrisée');
     equal(await page.locator('.frame').count(), Math.min(photoCount, width >= 900 ? 20 : 12), 'Galerie initiale courte');
     equal(await page.locator('[data-filter]').count(), photographed.length + 1, 'Filtres des thèmes photographiés');
-    equal(await page.locator('.strip-item').count(), selectedCount, 'Sélection complète');
+    equal(await page.locator('#selection-strip .strip-item').count(), selectedCount, 'Pellicule complète, sans doublons en mouvement réduit');
+    ok((await page.locator('.opening').boundingBox()).y < 120, 'Pellicule directement sous l’en-tête');
+    equal(await page.locator('.hero-title, .hero-mark, .opening-sub, .section-head .idx, .hint:not(#portfolio-count)').count(), 0, 'Sans accroche ni annotations');
+    equal((await page.locator('.opening-title').boundingBox()).width > 1, width >= 900, 'Grand titre sur ordinateur seulement');
+    equal(await page.locator('.wordmark').textContent(), 'Liashoots', 'Nom liashoots dans l’en-tête');
     equal(await page.locator('.theme-row').count(), bookable.length, 'Prestations réservables');
     equal(await page.locator('.grease').count(), 0, 'Aucun trait rouge sur les photos');
     equal(await page.locator('form, #contact-dialog, #legal-dialog').count(), 0, 'Plus de formulaire ni de fenêtre de mentions');
@@ -176,7 +181,8 @@ try {
   await updated.close();
   const noScript = await browser.newPage({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   await noScript.goto(baseURL, { waitUntil: 'networkidle' });
-  equal(await noScript.locator('h1').isVisible(), true, 'Titre sans JavaScript');
+  equal(await noScript.locator('#selection-strip .strip-item').count(), selectedCount, 'Pellicule sans JavaScript');
+  equal(await noScript.locator('#selection-strip img').first().isVisible(), true, 'Photo d’ouverture sans JavaScript');
   equal(await noScript.locator('.noscript-note').first().isVisible(), true, 'Alternative sans JavaScript');
   const instagram = original.contact.socials.find(social => social.label === 'Instagram')?.url;
   for (const path of pages) {
@@ -269,9 +275,12 @@ try {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(baseURL, { waitUntil: 'networkidle' });
-    await page.locator('#hero-canvas.is-live').waitFor({ state: 'attached', timeout: 12000 });
+    const reelStart = await page.locator('#selection-strip').evaluate(element => element.scrollLeft);
     await page.waitForTimeout(2400);
-    equal(await page.locator('.hero-actions').evaluate(element => getComputedStyle(element).opacity), '1', 'Boutons visibles après animation');
+    ok(await page.locator('#selection-strip').evaluate(element => element.scrollLeft) > reelStart + 20, 'La pellicule défile seule');
+    ok(await page.locator('#selection-strip .is-clone').count() === selectedCount, 'Boucle de la pellicule');
+    equal(await page.locator('#selection-strip .is-clone').first().getAttribute('aria-hidden'), 'true', 'Doublons masqués aux lecteurs d’écran');
+    equal(await page.locator('.opening-copy').evaluate(element => getComputedStyle(element).opacity), '1', 'Texte et boutons visibles après animation');
     await page.screenshot({ path: `qa/site-${width}-motion-hero.png` });
     await page.locator('#contact').scrollIntoViewIfNeeded();
     await page.locator('#closing-canvas.is-live').waitFor({ state: 'attached', timeout: 12000 });

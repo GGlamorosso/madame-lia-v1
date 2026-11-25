@@ -1,4 +1,4 @@
-# Madame Lia — site photographique
+# liashoots — site photographique de Lia
 
 Site français en HTML, CSS et JavaScript natifs. Le dossier `dist/` est le site complet : aucune compilation, base de données, clé API ou installation nécessaire pour le consulter. Déploiement prévu sur Vercel.
 
@@ -14,7 +14,7 @@ Ouvrir http://localhost:4173. Ne pas ouvrir directement index.html en file:// (l
 
 | Adresse | Fichier | Rôle |
 | --- | --- | --- |
-| `/` | `dist/index.html` | Accueil : hero, sélection, planche-contact, prestations, à propos, contact |
+| `/` | `dist/index.html` | Accueil : pellicule d’ouverture, à propos, planche-contact, prestations, contact |
 | `/a-propos/` | `dist/a-propos/index.html` | Démarche, prestations (vers le filtre du portfolio), carnets personnels |
 | `/contact/` | `dist/contact/index.html` | Contact direct, « Comment ça se passe », questions fréquentes |
 | `/mentions-legales/` | `dist/mentions-legales/index.html` | Éditeur, hébergement, propriété intellectuelle, crédits |
@@ -30,11 +30,13 @@ Scripts : `site.js` (toutes les pages : mouvement, menu mobile, barre de contact
 - Palette (choix de l’utilisateur) : fond blanc `#ffffff`, olive `#505b25` pour les titres, olive nuancée `#838d4c` pour les mots en italique, terracotta `#b04e2c` en contraste (boutons, repères, puces), texte noir olive `#22231a`. Toutes les couleurs sont des variables en tête de `dist/styles.css` ; le WebGL lit `--paper`. Contrastes vérifiés (AA ; la nuance ne sert qu’aux grands titres).
 - Typographie : Archivo variable (largeur et graisse), Cormorant italique et DM Mono pour les marquages. Fichiers hébergés localement, sans requête à un fournisseur de polices ; licences dans `dist/assets/`.
 - 55 photographies réelles du ZIP fourni, réparties entre mariage, naissance, famille, portrait, mode, événement, voiture et voyage, plus deux images de présentation. Baptême, anniversaire et restaurant restent réservables, sans galerie inventée. Le voyage est un carnet personnel, sans prestation associée.
-- Présentation de Lia remontée : section « Moi, c’est Lia » sur l’accueil juste après la sélection « Les vues choisies » et la bande défilante, démarche dès le haut de la page À propos, « À propos » en tête de navigation.
-- Photos sans aucun trait ni filtre : les anciens cercles rouges « crayon gras » sont retirés. La bande de sélection s’intitule « Les vues choisies ».
+- Présentation de Lia remontée : section « Moi, c’est Lia » sur l’accueil juste après la pellicule d’ouverture et la bande défilante, démarche dès le haut de la page À propos, « À propos » en tête de navigation.
+- Nom affiché : **liashoots** (logo « Lia*shoots* », favicon « lia. »), comme l’Instagram @liashoots_.
+- Ouverture : la pellicule de photos défile seule directement sous l’en-tête, sans grand titre (titre `h1` réservé aux lecteurs d’écran), suivie d’une phrase et des boutons Réserver / Voir les images. Pause au survol, au toucher, au clavier ou visionneuse ouverte ; glisser possible ; immobile en mouvement réduit. Les petites étiquettes de section et indications (« 01 Sélection », « Faites glisser »…) sont retirées.
+- Photos sans aucun trait ni filtre : les anciens cercles rouges « crayon gras » sont retirés.
 - La galerie « Tout » commence avec 12 photos sur mobile/tablette et 20 sur ordinateur, puis un bouton affiche les 55 vues. `/?theme=portrait#portfolio` ouvre directement un filtre.
 - Visionneuse avec flèches, boucle, clavier et balayage tactile.
-- Hero WebGL : tirages flottants en perspective qui suivent doucement la souris ou l’inclinaison du téléphone. **La loupe (effet bulle) est retirée.** Scène photo en parallaxe à l’appel final. Chargement progressif, arrêt hors écran ou onglet masqué, images HTML si WebGL est indisponible, réduction des animations respectée.
+- WebGL : scène photo en parallaxe à l’appel final. Les tirages flottants du haut de page et **la loupe (effet bulle)** sont retirés. Chargement progressif, arrêt hors écran ou onglet masqué, images HTML si WebGL est indisponible, réduction des animations respectée.
 - **Contact sans formulaire** : chaque bouton « Réserver » ouvre WhatsApp avec un message prérempli (la prestation est reprise depuis la liste des prestations ou la visionneuse), avec à côté les icônes Instagram et e-mail. Tout fonctionne sans JavaScript.
 - En-tête commun avec menu plein écran sur mobile ; pied de page commun (navigation, infos, contact, réseaux, mentions) ; barre de réservation mobile sur l’accueil et À propos.
 
@@ -50,9 +52,9 @@ Chaque page contient des marqueurs `<!-- partial:nom --><!-- /partial:nom -->`. 
 
 La source commune est `dist/services.json` :
 
-- `images.hero` : couverture ; `images.aboutMain` et `images.aboutDetail` : présentation (accueil et À propos).
+- `images.hero` : photo d’ouverture, première de la pellicule et préchargée ; `images.aboutMain` et `images.aboutDetail` : présentation (accueil et À propos).
 - `services[]` : thèmes, titres, sous-titres, photos et `bookable` (facultatif, `true` par défaut). Un thème sans photo ne produit pas de filtre. `bookable: false` exclut un thème des prestations.
-- Chaque photo contient `src`, `alt`, `width`, `height`, `provisional` et éventuellement `srcset` et `select`. `select: true` ajoute la photo à la sélection horizontale.
+- Chaque photo contient `src`, `alt`, `width`, `height`, `provisional` et éventuellement `srcset` et `select`. `select: true` ajoute la photo à la pellicule d’ouverture.
 - `contact` : WhatsApp, e-mail et réseaux (`socials`, avec `label` et URL https).
 
 Exemple de vraie photo (dimensions à adapter au fichier réel) :
@@ -103,7 +105,7 @@ Principe : Lia continue d’envoyer les fichiers avec un service de transfert, e
 
 Le client ouvre une page « Julie & Tom, vos images sont prêtes » : message de Lia, bouton Télécharger, date limite, conseils de sauvegarde, Instagram et « Réserver une nouvelle séance ». Après la date d’expiration, la page propose de demander un nouveau lien par WhatsApp.
 
-Fonctionnement : les informations sont encodées après le `#` de l’adresse (`/livraison/#v1.…`). Cette partie n’est jamais envoyée au serveur ni enregistrée. Pour empêcher qu’une fausse page Madame Lia renvoie vers un site piégé, seuls les services de la liste `SERVICES` de `dist/livraison.js` sont acceptés ; pour en ajouter un, compléter cette liste et la phrase d’aide du générateur. Les pages `/livraison/` sont exclues des moteurs de recherche (`noindex`, en-têtes Vercel). Les liens WeTransfer gratuits expirent en quelques jours ; SwissTransfer (jusqu’à 30 jours) ou Drive (sans expiration) sont plus confortables.
+Fonctionnement : les informations sont encodées après le `#` de l’adresse (`/livraison/#v1.…`). Cette partie n’est jamais envoyée au serveur ni enregistrée. Pour empêcher qu’une fausse page liashoots renvoie vers un site piégé, seuls les services de la liste `SERVICES` de `dist/livraison.js` sont acceptés ; pour en ajouter un, compléter cette liste et la phrase d’aide du générateur. Les pages `/livraison/` sont exclues des moteurs de recherche (`noindex`, en-têtes Vercel). Les liens WeTransfer gratuits expirent en quelques jours ; SwissTransfer (jusqu’à 30 jours) ou Drive (sans expiration) sont plus confortables.
 
 ## Contact et contenus à valider avant publication
 
