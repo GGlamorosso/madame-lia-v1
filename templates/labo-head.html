@@ -1,0 +1,17 @@
+<script>
+(() => {
+  const choices = ['cinema', 'chambre-noire', 'mur', 'transitions'];
+  let name = new URLSearchParams(location.search).get('labo');
+  try {
+    if (name === null) name = sessionStorage.getItem('labo');
+    else if (choices.includes(name)) sessionStorage.setItem('labo', name);
+    else sessionStorage.removeItem('labo');
+  } catch { /* Le lien fonctionne aussi quand le stockage est désactivé. */ }
+  if (!choices.includes(name)) return;
+  document.documentElement.dataset.labo = name;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = '/labo/' + name + '.css';
+  document.head.append(link);
+})();
+</script>

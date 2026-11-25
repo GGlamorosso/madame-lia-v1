@@ -13,6 +13,25 @@
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/archivo.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="/assets/mariage-01.webp" imagesrcset="/assets/mariage-01-480.webp 480w, /assets/mariage-01-800.webp 800w, /assets/mariage-01.webp 1200w" imagesizes="(min-width: 900px) 30vw, 74vw" fetchpriority="high">
+<!-- partial:labo-head -->
+<script>
+(() => {
+  const choices = ['cinema', 'chambre-noire', 'mur', 'transitions'];
+  let name = new URLSearchParams(location.search).get('labo');
+  try {
+    if (name === null) name = sessionStorage.getItem('labo');
+    else if (choices.includes(name)) sessionStorage.setItem('labo', name);
+    else sessionStorage.removeItem('labo');
+  } catch { /* Le lien fonctionne aussi quand le stockage est désactivé. */ }
+  if (!choices.includes(name)) return;
+  document.documentElement.dataset.labo = name;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = '/labo/' + name + '.css';
+  document.head.append(link);
+})();
+</script>
+<!-- /partial:labo-head -->
 <link rel="stylesheet" href="/styles.css">
 <script src="/site.js" defer></script>
 <script src="/app.js" defer></script>

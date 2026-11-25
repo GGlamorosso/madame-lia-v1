@@ -52,7 +52,7 @@ const socialURL = new Map(socials.map(social => [social.label.toLowerCase(), new
 const handle = url => `@${new URL(url).pathname.split('/').filter(Boolean)[0] || new URL(url).hostname}`;
 
 const partials = {};
-for (const name of ['sprite', 'header', 'footer', 'cta-bar']) partials[name] = (await readFile(new URL(`${name}.html`, templates), 'utf8')).trim();
+for (const name of ['sprite', 'header', 'footer', 'cta-bar', 'labo-head']) partials[name] = (await readFile(new URL(`${name}.html`, templates), 'utf8')).trim();
 const bookable = data.services.filter(service => service.bookable !== false);
 const lazyImage = (photo, sizes) => `<img src="${escape(asset(photo.src))}"${photo.srcset ? ` srcset="${escape(assetSet(photo.srcset))}" sizes="${sizes}"` : ''} alt="${escape(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async">`;
 // Accueil : pellicule des vues select:true, dans le même ordre que mixedPhotos() d'app.js (les thèmes alternent).
