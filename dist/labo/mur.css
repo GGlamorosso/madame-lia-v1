@@ -1,0 +1,27 @@
+.mur-switch { display:flex; gap:5px; align-items:center; }
+.mur-pill,.mur-chip { background:var(--paper); border:1px solid var(--line); color:var(--ink); border-radius:30px; padding:0 16px; min-height:44px; font:11px var(--mono); letter-spacing:.05em; }
+.mur-pill[aria-pressed="true"], .mur-chip[aria-pressed="true"] { background:var(--accent); color:var(--paper); border-color:var(--accent); }
+html.mur-lock,html.mur-lock body { overflow:hidden; }
+html.mur-covered main { content-visibility:hidden; }
+.mur { position:fixed; inset:0; width:100%; height:100%; max-width:none; max-height:none; margin:0; padding:0; border:0; overflow:hidden; color:var(--ink); background:var(--surface); }
+.mur::backdrop {background:var(--surface);}
+.mur-top { position:absolute; left:0; right:0; top:0; z-index:2; display:flex; justify-content:space-between; align-items:center; padding:max(12px,env(safe-area-inset-top)) var(--pad) 12px; pointer-events:none; }
+.mur-count,.mur-close { background:var(--paper); border:1px solid var(--line); border-radius:40px; }
+.mur-count { padding:10px 16px; margin:0; }
+.mur-close { pointer-events:auto; }
+.mur-chips { position:absolute; z-index:2; bottom:max(14px,env(safe-area-inset-bottom)); left:50%; translate:-50% 0; display:flex; gap:5px; max-width:calc(100% - 24px); padding:5px; border-radius:32px; background:var(--paper); overflow:auto; scrollbar-width:none; }
+.mur-chip { flex:none; }
+.mur-view,.mur-plane { position:absolute; inset:0; }
+.mur-view { overflow:hidden; touch-action:none; user-select:none; cursor:grab; perspective:var(--mur-perspective,1600px); }
+.is-dragging .mur-view { cursor:grabbing; }
+.mur-tile { position:absolute; top:0; left:0; padding:0; border:0; background:transparent; cursor:inherit; }
+.mur-card,.mur-card img { display:block; width:100%; height:100%; }
+.mur-card { background:var(--paper); transition:scale .25s var(--ease); }
+.mur-card img { object-fit:cover; pointer-events:none; }
+.is-entering .mur-card { animation:mur-arrive 1.1s var(--d,0ms) var(--ease) both; }
+.is-leaving .mur-card { animation:mur-depart .28s var(--d,0ms) ease both; }
+@keyframes mur-arrive { from {scale:.89;clip-path:inset(12% 0 10%);} to {scale:1;clip-path:inset(0);} }
+@keyframes mur-depart { to {scale:.9;clip-path:inset(0 0 100%);} }
+@media (hover:hover) { .mur:not(.is-moving) .mur-tile:hover .mur-card {scale:1.024;} }
+@media (max-width:680px) { #portfolio .section-head:has(.mur-switch){ flex-wrap:wrap; } }
+.mur-switch[hidden],.mur-tile[hidden]{display:none;}

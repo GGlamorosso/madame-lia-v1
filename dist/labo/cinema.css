@@ -1,0 +1,9 @@
+@import url('/vendor/lenis.css');
+@media (prefers-reduced-motion:no-preference) {
+  html[data-labo="cinema"] .about-photos [data-reveal],
+  html[data-labo="cinema"] #portfolio-grid .frame:nth-child(-n+6) {
+    opacity: 1; transform: none; transition: none;
+  }
+  html[data-labo="cinema"] .about-detail { rotate: 5deg; }
+  html[data-labo="cinema"] .band-track { animation-name: none; }
+}
