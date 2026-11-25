@@ -75,7 +75,7 @@ try {
     equal(await page.locator('.hero-image').isVisible(), true, 'Photo d’ouverture dans le hero');
     equal(await page.locator('.hero-mark, .hero-sub, .frame-mark, .section-head .idx, .hint:not(#portfolio-count)').count(), 0, 'Sans accroche ni annotations');
     equal((await page.locator('.hero-title').boundingBox()).width > 1, width >= 900, 'Grand titre sur ordinateur seulement');
-    equal(await page.locator('.wordmark').textContent(), 'Liashoots', 'Nom liashoots dans l’en-tête');
+    equal(await page.locator('.wordmark').textContent(), 'Liashoot', 'Nom Liashoot dans l’en-tête');
     equal(await page.locator('.theme-row').count(), bookable.length, 'Prestations réservables');
     equal(await page.locator('.grease').count(), 0, 'Aucun trait rouge sur les photos');
     equal(await page.locator('form, #contact-dialog, #legal-dialog').count(), 0, 'Plus de formulaire ni de fenêtre de mentions');

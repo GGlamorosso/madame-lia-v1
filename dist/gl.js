@@ -1,4 +1,4 @@
-// Scènes WebGL de liashoots : tirages flottants en perspective, sans loupe ni filtre.
+// Scènes WebGL de Liashoot : tirages flottants en perspective, sans loupe ni filtre.
 // Écrit sans dépendance. Tout ici est décoratif : si quoi que ce soit échoue,
 // les images HTML restent affichées telles quelles.
 

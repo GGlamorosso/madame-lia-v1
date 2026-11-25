@@ -1,4 +1,4 @@
-# liashoots — site photographique de Lia
+# Liashoot — site photographique de Lia
 
 Site français en HTML, CSS et JavaScript natifs. Le dossier `dist/` est le site complet : aucune compilation, base de données, clé API ou installation nécessaire pour le consulter. Déploiement prévu sur Vercel.
 
@@ -31,7 +31,7 @@ Scripts : `site.js` (toutes les pages : mouvement, menu mobile, barre de contact
 - Typographie : Archivo variable (largeur et graisse), Cormorant italique et DM Mono pour les marquages. Fichiers hébergés localement, sans requête à un fournisseur de polices ; licences dans `dist/assets/`.
 - 55 photographies réelles du ZIP fourni, réparties entre mariage, naissance, famille, portrait, mode, événement, voiture et voyage, plus deux images de présentation. Baptême, anniversaire et restaurant restent réservables, sans galerie inventée. Le voyage est un carnet personnel, sans prestation associée.
 - Présentation de Lia remontée : section « Moi, c’est Lia » sur l’accueil juste après le hero, la pellicule et la bande défilante, démarche dès le haut de la page À propos, « À propos » en tête de navigation.
-- Nom affiché : **liashoots** (logo « Lia*shoots* », favicon « lia. »), comme l’Instagram @liashoots_.
+- Nom affiché : **Liashoot** (logo « Lia*shoot* », favicon « lia. »), Instagram @liashoots_.
 - Hero : photo d’ouverture et tirages flottants WebGL ; grand titre « Des images qui vous révèlent. » sur ordinateur seulement (sur mobile, réservé aux lecteurs d’écran), sans phrase d’accroche ni marquage. Juste dessous, la pellicule des vues `select: true` défile seule, sans titre : pause au survol, au toucher, au clavier ou visionneuse ouverte ; glisser possible ; immobile en mouvement réduit. Les petites étiquettes de section et indications (« 01 Sélection », « Faites glisser »…) sont retirées.
 - Photos sans aucun trait ni filtre : les anciens cercles rouges « crayon gras » sont retirés.
 - La galerie « Tout » commence avec 12 photos sur mobile/tablette et 20 sur ordinateur, puis un bouton affiche les 55 vues. `/?theme=portrait#portfolio` ouvre directement un filtre.
@@ -105,7 +105,7 @@ Principe : Lia continue d’envoyer les fichiers avec un service de transfert, e
 
 Le client ouvre une page « Julie & Tom, vos images sont prêtes » : message de Lia, bouton Télécharger, date limite, conseils de sauvegarde, Instagram et « Réserver une nouvelle séance ». Après la date d’expiration, la page propose de demander un nouveau lien par WhatsApp.
 
-Fonctionnement : les informations sont encodées après le `#` de l’adresse (`/livraison/#v1.…`). Cette partie n’est jamais envoyée au serveur ni enregistrée. Pour empêcher qu’une fausse page liashoots renvoie vers un site piégé, seuls les services de la liste `SERVICES` de `dist/livraison.js` sont acceptés ; pour en ajouter un, compléter cette liste et la phrase d’aide du générateur. Les pages `/livraison/` sont exclues des moteurs de recherche (`noindex`, en-têtes Vercel). Les liens WeTransfer gratuits expirent en quelques jours ; SwissTransfer (jusqu’à 30 jours) ou Drive (sans expiration) sont plus confortables.
+Fonctionnement : les informations sont encodées après le `#` de l’adresse (`/livraison/#v1.…`). Cette partie n’est jamais envoyée au serveur ni enregistrée. Pour empêcher qu’une fausse page Liashoot renvoie vers un site piégé, seuls les services de la liste `SERVICES` de `dist/livraison.js` sont acceptés ; pour en ajouter un, compléter cette liste et la phrase d’aide du générateur. Les pages `/livraison/` sont exclues des moteurs de recherche (`noindex`, en-têtes Vercel). Les liens WeTransfer gratuits expirent en quelques jours ; SwissTransfer (jusqu’à 30 jours) ou Drive (sans expiration) sont plus confortables.
 
 ## Contact et contenus à valider avant publication
 
