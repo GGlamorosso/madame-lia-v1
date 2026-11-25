@@ -1,4 +1,4 @@
-// Scènes WebGL de Madame Lia : tirages flottants et loupe en verre.
+// Scènes WebGL de Madame Lia : tirages flottants en perspective, sans loupe ni filtre.
 // Écrit sans dépendance. Tout ici est décoratif : si quoi que ce soit échoue,
 // les images HTML restent affichées telles quelles.
 
@@ -23,60 +23,22 @@ const PLANE_FRAG = `
 precision mediump float;
 uniform sampler2D u_tex;
 uniform float u_alpha;
+uniform float u_fade;
 uniform vec3 u_paper;
 uniform vec2 u_uvScale;
 varying vec2 v_uv;
 void main() {
   vec2 uv = (v_uv - 0.5) * u_uvScale + 0.5;
-  gl_FragColor = vec4(mix(u_paper, texture2D(u_tex, uv).rgb, u_alpha), 1.0);
+  gl_FragColor = vec4(mix(u_paper, texture2D(u_tex, uv).rgb, u_alpha * u_fade), 1.0);
 }`;
 
-const POST_VERT = `
-attribute vec2 a_pos;
-varying vec2 v_uv;
-void main() {
-  v_uv = a_pos + 0.5;
-  gl_Position = vec4(a_pos * 2.0, 0.0, 1.0);
-}`;
-
-// Loupe : grossissement au centre, compression au bord, dispersion chromatique,
-// reflet spéculaire et ombre portée. Couleurs originales des photos, sans filtre global.
-const POST_FRAG = `
-precision highp float;
-uniform sampler2D u_scene;
-uniform vec2 u_res;
-uniform vec2 u_lens;
-uniform float u_radius;
-uniform float u_fade;
-uniform vec3 u_paper;
-varying vec2 v_uv;
-void main() {
-  vec2 frag = v_uv * u_res;
-  vec2 d = (frag - u_lens) / u_radius;
-  float r = length(d);
-  vec3 outside = texture2D(u_scene, v_uv).rgb;
-  outside *= 1.0 - (1.0 - smoothstep(1.0, 1.45, length(d - vec2(0.06, -0.10)))) * 0.34;
-  vec3 col = outside;
-  if (r < 1.0) {
-    float z = sqrt(1.0 - r * r);
-    float bend = mix(0.56, 1.0, pow(r, 3.2));
-    vec2 base = u_lens + d * u_radius * bend;
-    vec2 spread = d * u_radius * (0.010 + 0.060 * r * r);
-    vec3 c;
-    c.r = texture2D(u_scene, (base + spread) / u_res).r;
-    c.g = texture2D(u_scene, base / u_res).g;
-    c.b = texture2D(u_scene, (base - spread) / u_res).b;
-    vec3 n = normalize(vec3(d, z));
-    float spec = pow(max(0.0, dot(n, normalize(vec3(-0.5, 0.6, 0.62)))), 26.0);
-    float rim = smoothstep(0.72, 1.0, r);
-    c += rim * 0.09 + spec * 0.42;
-    c *= 1.0 - 0.38 * smoothstep(0.93, 1.0, r);
-    col = mix(outside, c, 1.0 - smoothstep(0.985, 1.0, r));
-  }
-  gl_FragColor = vec4(mix(u_paper, col, u_fade), 1.0);
-}`;
-
-const PAPER = [1, 1, 1];
+// Couleur du papier lue dans la palette CSS (--paper) : la scène se fond dans la page.
+function paperColor() {
+  let hex = getComputedStyle(document.documentElement).getPropertyValue('--paper').trim().replace('#', '');
+  if (/^[0-9a-f]{3}$/i.test(hex)) hex = hex.replace(/./g, '$&$&');
+  return /^[0-9a-f]{6}$/i.test(hex) ? hex.match(/../g).map(part => parseInt(part, 16) / 255) : [1, 1, 1];
+}
+const PAPER = paperColor();
 
 function compile(gl, vertexSource, fragmentSource) {
   const program = gl.createProgram();
@@ -144,11 +106,10 @@ function projection(width, height, cameraX, cameraY) {
   ]);
 }
 
-function createStage({ canvas, section, layout, lensHome, reducedMotion }) {
-  const gl = canvas.getContext('webgl', { alpha: false, antialias: false, powerPreference: 'high-performance' });
+function createStage({ canvas, section, layout, reducedMotion }) {
+  const gl = canvas.getContext('webgl', { alpha: false, antialias: true, powerPreference: 'high-performance' });
   if (!gl) throw new Error('webgl');
   const plane = compile(gl, PLANE_VERT, PLANE_FRAG);
-  const post = compile(gl, POST_VERT, POST_FRAG);
   const quad = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, quad);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5]), gl.STATIC_DRAW);
@@ -156,37 +117,23 @@ function createStage({ canvas, section, layout, lensHome, reducedMotion }) {
   gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
   gl.disable(gl.DEPTH_TEST);
 
-  const target = gl.createTexture();
-  const framebuffer = gl.createFramebuffer();
-  let width = 0, height = 0, ratio = 1, running = false, frame = 0, visible = false, alive = true;
+  let width = 0, height = 0, running = false, frame = 0, visible = false, alive = true;
   let born = 0;
-  const pointer = { x: 0, y: 0, tx: 0, ty: 0, last: -1e9 };
-  const lens = { x: 0, y: 0, ready: false };
+  const pointer = { x: 0, y: 0, tx: 0, ty: 0 };
 
   function resize() {
     const box = canvas.getBoundingClientRect();
-    ratio = Math.min(devicePixelRatio || 1, box.width < 700 ? 1.5 : 1.75);
+    const ratio = Math.min(devicePixelRatio || 1, box.width < 700 ? 1.5 : 1.75);
+    width = box.width; height = box.height;
     const nextWidth = Math.max(2, Math.round(box.width * ratio));
     const nextHeight = Math.max(2, Math.round(box.height * ratio));
-    if (nextWidth === canvas.width && nextHeight === canvas.height) { width = box.width; height = box.height; return; }
-    width = box.width; height = box.height;
-    canvas.width = nextWidth; canvas.height = nextHeight;
-    gl.bindTexture(gl.TEXTURE_2D, target);
-    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, nextWidth, nextHeight, 0, gl.RGB, gl.UNSIGNED_BYTE, null);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
-    gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, target, 0);
+    if (nextWidth !== canvas.width || nextHeight !== canvas.height) { canvas.width = nextWidth; canvas.height = nextHeight; }
   }
 
   function point(clientX, clientY) {
     const box = canvas.getBoundingClientRect();
     pointer.tx = (clientX - box.left) / box.width * 2 - 1;
     pointer.ty = 1 - (clientY - box.top) / box.height * 2;
-    pointer.last = performance.now();
   }
   const onPointer = event => { if (event.pointerType !== 'touch') point(event.clientX, event.clientY); };
   const onTouch = event => { if (event.touches[0]) point(event.touches[0].clientX, event.touches[0].clientY); };
@@ -216,7 +163,6 @@ function createStage({ canvas, section, layout, lensHome, reducedMotion }) {
     const swayY = pointer.y * 0.6 - tilt.y * 0.4 + Math.cos(time * 0.27) * 0.10;
     const planes = layout({ width, height, time, progress, canvasBox: box });
 
-    gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.clearColor(...PAPER, 1);
     gl.clear(gl.COLOR_BUFFER_BIT);
@@ -225,6 +171,8 @@ function createStage({ canvas, section, layout, lensHome, reducedMotion }) {
     gl.activeTexture(gl.TEXTURE0);
     gl.uniform1i(plane.uniforms.u_tex, 0);
     gl.uniform3fv(plane.uniforms.u_paper, PAPER);
+    // Le fondu vers le papier accompagne le défilement, sans teinte ajoutée.
+    gl.uniform1f(plane.uniforms.u_fade, 1 - progress * 0.75);
     planes.sort((first, second) => first.z - second.z).forEach(item => {
       gl.bindTexture(gl.TEXTURE_2D, item.texture);
       gl.uniform3f(plane.uniforms.u_center, item.x, item.y, item.z);
@@ -235,27 +183,6 @@ function createStage({ canvas, section, layout, lensHome, reducedMotion }) {
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     });
 
-    // La loupe suit le doigt ou la souris, puis reprend sa dérive.
-    const home = lensHome({ width, height, time });
-    const active = now - pointer.last < 2600;
-    const targetX = active ? (pointer.tx + 1) / 2 * width : home.x;
-    const targetY = active ? (pointer.ty + 1) / 2 * height : home.y;
-    if (!lens.ready) { lens.x = home.x; lens.y = home.y; lens.ready = true; }
-    lens.x += (targetX - lens.x) * (active ? 0.12 : 0.03);
-    lens.y += (targetY - lens.y) * (active ? 0.12 : 0.03);
-    const radius = Math.max(64, Math.min(190, Math.min(width, height) * 0.19));
-
-    gl.bindFramebuffer(gl.FRAMEBUFFER, null);
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    gl.useProgram(post.program);
-    gl.bindTexture(gl.TEXTURE_2D, target);
-    gl.uniform1i(post.uniforms.u_scene, 0);
-    gl.uniform3fv(post.uniforms.u_paper, PAPER);
-    gl.uniform2f(post.uniforms.u_res, canvas.width, canvas.height);
-    gl.uniform2f(post.uniforms.u_lens, lens.x * ratio, lens.y * ratio);
-    gl.uniform1f(post.uniforms.u_radius, radius * ratio);
-    gl.uniform1f(post.uniforms.u_fade, 1 - progress * 0.75);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     if (!canvas.classList.contains('is-live')) canvas.classList.add('is-live');
     frame = requestAnimationFrame(render);
   }
@@ -315,13 +242,6 @@ async function startHero({ canvas, section, frame, image, sides, reducedMotion }
         });
       });
       return planes;
-    },
-    lensHome({ width, height, time }) {
-      const box = frame.getBoundingClientRect();
-      const canvasBox = canvas.getBoundingClientRect();
-      const x = box.left - canvasBox.left + box.width / 2;
-      const y = height - (box.top - canvasBox.top + box.height / 2);
-      return { x: x + Math.cos(time * 0.33) * box.width * 0.42, y: y + Math.sin(time * 0.47) * box.height * 0.26 };
     }
   });
   main = createTexture(stage.gl, images[0]);
@@ -336,9 +256,6 @@ async function startClosing({ canvas, section, src, reducedMotion }) {
     layout({ width, height, time, progress }) {
       const cover = Math.max(width / photo.aspect, height) * 1.08;
       return [{ texture: photo.texture, x: 0, y: -progress * height * 0.08 + Math.sin(time * 0.2) * 6, z: 0, w: cover * photo.aspect, h: cover, sway: 0.5 }];
-    },
-    lensHome({ width, height, time }) {
-      return { x: width * (0.5 + Math.cos(time * 0.29) * 0.24), y: height * (0.66 + Math.sin(time * 0.41) * 0.14) };
     }
   });
   photo = createTexture(stage.gl, image);

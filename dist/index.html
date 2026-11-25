@@ -10,41 +10,61 @@
 <meta property="og:description" content="Mariage, naissance, famille, portrait, événement : des images qui vous révèlent.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/archivo.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/mariage-01.webp" imagesrcset="assets/mariage-01-480.webp 480w, assets/mariage-01-800.webp 800w, assets/mariage-01.webp 1200w" imagesizes="(min-width: 900px) 30vw, 74vw" fetchpriority="high">
-<link rel="stylesheet" href="styles.css">
-<script src="app.js" defer></script>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="/assets/mariage-01.webp" imagesrcset="/assets/mariage-01-480.webp 480w, /assets/mariage-01-800.webp 800w, /assets/mariage-01.webp 1200w" imagesizes="(min-width: 900px) 30vw, 74vw" fetchpriority="high">
+<link rel="stylesheet" href="/styles.css">
+<script src="/site.js" defer></script>
+<script src="/app.js" defer></script>
 </head>
 <body id="haut">
+<!-- partial:sprite -->
 <svg class="sprite" aria-hidden="true" focusable="false">
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
   <symbol id="i-right" viewBox="0 0 24 24"><path d="M4 12h16M13 5l7 7-7 7"/></symbol>
   <symbol id="i-left" viewBox="0 0 24 24"><path d="M20 12H4M11 5l-7 7 7 7"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 20V4M5 11l7-7 7 7"/></symbol>
   <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1.5"/><path d="M16 8V5.500A1.500 1.500 0 0 0 14.500 4h-9A1.500 1.500 0 0 0 4 5.500v9A1.500 1.500 0 0 0 5.500 16H8"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3z"/><path d="M9.2 8.2c-.4 1.1.2 2.800 1.600 4.200s3 2 4.100 1.600l.9-1.300-1.800-1.100-.8.700c-.7-.4-1.500-1.200-1.900-1.900l.7-.8-1.100-1.800z" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.700" cy="7.300" r=".7" fill="currentColor" stroke="none"/></symbol>
 </svg>
+<!-- /partial:sprite -->
 <a class="skip-link" href="#contenu">Aller au contenu</a>
 
+<!-- partial:header -->
 <header class="site-header">
-  <a class="wordmark" href="#haut" aria-label="Madame Lia, accueil">Madame Lia</a>
-  <nav class="site-nav" aria-label="Navigation principale">
-    <a href="#portfolio">Portfolio</a>
-    <a href="#prestations">Prestations</a>
-    <a href="#apropos">À propos</a>
+  <a class="wordmark" href="/" aria-current="page" aria-label="Madame Lia, accueil">Madame Lia</a>
+  <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+    <a href="/a-propos/">À propos</a>
+    <a href="/#portfolio">Portfolio</a>
+    <a href="/#prestations">Prestations</a>
+    <a href="/contact/">Contact</a>
+    <div class="nav-extra">
+      <a class="mono" href="/livraison/">Espace client</a>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-wa"/></svg> Écrire sur WhatsApp</a>
+        <a class="icon-button" href="https://www.instagram.com/liashoots_/" data-social="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Voir Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+        <a class="icon-button" href="mailto:liapellegrin22@gmail.com" aria-label="Écrire un e-mail"><svg class="icon"><use href="#i-mail"/></svg></a>
+      </div>
+    </div>
   </nav>
-  <a class="header-cta" href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer" data-open-contact>Réserver</a>
+  <div class="header-actions">
+    <a class="header-cta" href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer">Réserver</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu"><span></span><span></span></button>
+  </div>
 </header>
+<!-- /partial:header -->
 
 <main id="contenu">
 
 <section class="hero" aria-labelledby="hero-title">
   <canvas class="gl-canvas" id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-frame">
-    <img class="hero-image" data-image="hero" sizes="(min-width: 900px) 30vw, 74vw" fetchpriority="high" decoding="async" src="assets/mariage-01.webp" alt="Au-dessus de la mer, un marié embrasse la joue de la mariée qui éclate de rire, en noir et blanc" width="1200" height="1600" srcset="assets/mariage-01-480.webp 480w, assets/mariage-01-800.webp 800w, assets/mariage-01.webp 1200w">
+    <img class="hero-image" data-image="hero" sizes="(min-width: 900px) 30vw, 74vw" fetchpriority="high" decoding="async" src="/assets/mariage-01.webp" alt="Au-dessus de la mer, un marié embrasse la joue de la mariée qui éclate de rire, en noir et blanc" width="1200" height="1600" srcset="/assets/mariage-01-480.webp 480w, /assets/mariage-01-800.webp 800w, /assets/mariage-01.webp 1200w">
     <span class="frame-mark mono" aria-hidden="true">LIA 400 <i></i> 01A</span>
   </div>
   <div class="hero-copy">
@@ -55,8 +75,8 @@
       <span class="line" aria-hidden="true"><span><em>révèlent.</em></span></span>
     </h1>
     <p class="hero-sub">Mariage, naissance, famille, portrait, événement&nbsp;: je photographie ce qui compte pour vous, comme vous le vivez.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer" data-open-contact data-magnetic>Réserver une date <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <div class="hero-actions" data-bar-hide>
+      <a class="btn btn-primary" href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer" data-magnetic>Réserver une date <svg class="icon"><use href="#i-arrow"/></svg></a>
       <a class="link-line" href="#portfolio">Voir les images</a>
     </div>
   </div>
@@ -65,7 +85,7 @@
 <section class="selection" id="selection" aria-labelledby="selection-title">
   <div class="section-head wrap" data-reveal>
     <p class="mono"><span class="idx">01</span> Sélection</p>
-    <h2 class="display" id="selection-title">Les vues <em>cerclées.</em></h2>
+    <h2 class="display" id="selection-title">Les vues <em>choisies.</em></h2>
     <p class="mono hint">Faites glisser</p>
   </div>
   <div class="strip" id="selection-strip" tabindex="0" role="group" aria-label="Photographies sélectionnées, défilement horizontal"></div>
@@ -75,25 +95,51 @@
   <div class="band-track"><span>Capture <em>create</em> share <i></i> Capture <em>create</em> share <i></i> </span><span>Capture <em>create</em> share <i></i> Capture <em>create</em> share <i></i> </span></div>
 </div>
 
+<section class="about" id="apropos" aria-labelledby="about-title">
+  <div class="wrap about-inner">
+    <div class="about-photos">
+      <div class="about-main dev" data-reveal>
+        <img sizes="(min-width: 900px) 36vw, 78vw" data-image="aboutMain" loading="lazy" decoding="async" src="/assets/about-main.webp" alt="Autoportrait au miroir : une jeune femme tient un appareil photo à bout de bras, en noir et blanc" width="1200" height="1547" srcset="/assets/about-main-480.webp 480w, /assets/about-main-800.webp 800w, /assets/about-main.webp 1200w">
+      </div>
+      <div class="about-detail" data-reveal>
+        <img sizes="(min-width: 900px) 18vw, 44vw" data-image="aboutDetail" loading="lazy" decoding="async" src="/assets/about-detail.webp" alt="Très gros plan sur un regard, en noir et blanc" width="930" height="600" srcset="/assets/about-detail-480.webp 480w, /assets/about-detail-800.webp 800w, /assets/about-detail.webp 930w">
+        <span class="mono">Une autre façon de regarder</span>
+      </div>
+    </div>
+    <div class="about-copy" data-reveal>
+      <p class="mono"><span class="idx">02</span> Derrière l’objectif</p>
+      <h2 class="display" id="about-title">Moi, c’est <em>Lia.</em></h2>
+      <p class="about-lead">Une personne derrière l’appareil. Une histoire derrière chaque image.</p>
+      <p>Des gestes spontanés, une lumière, un lien. Mon regard se pose sur ces petits riens qui racontent beaucoup de vous.</p>
+      <p>Un mariage, une famille, un visage ou un lieu&nbsp;: l’envie est la même. Faire une place à ce qui vous ressemble.</p>
+      <p class="mono" data-about-provisional hidden>Images d’ambiance · portraits de Lia à venir</p>
+      <div class="about-actions">
+        <a class="btn btn-dark" href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer">Faisons connaissance <svg class="icon"><use href="#i-arrow"/></svg></a>
+        <a class="link-line" href="/a-propos/">En savoir plus sur Lia</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sheet wrap" id="portfolio" aria-labelledby="portfolio-title">
   <div class="section-head" data-reveal>
-    <p class="mono"><span class="idx">02</span> Portfolio</p>
+    <p class="mono"><span class="idx">03</span> Portfolio</p>
     <h2 class="display" id="portfolio-title">La planche-<em>contact.</em></h2>
     <p class="mono hint" id="portfolio-count" role="status" aria-live="polite"></p>
   </div>
   <div class="filters" id="portfolio-filters" role="group" aria-label="Filtrer les photographies par thème"></div>
   <div class="sheet-grid" id="portfolio-grid" aria-busy="true"></div>
-  <noscript><p class="noscript-note">La galerie interactive nécessite JavaScript. <a href="https://www.instagram.com/liashoots_/">Voir les photographies sur Instagram</a> ou <a href="https://wa.me/33767220949">écrire à Lia sur WhatsApp</a>.</p></noscript>
+  <noscript><p class="noscript-note">La galerie interactive nécessite JavaScript. <a href="https://www.instagram.com/liashoots_/" data-social="Instagram">Voir les photographies sur Instagram</a> ou <a href="https://wa.me/33767220949">écrire à Lia sur WhatsApp</a>.</p></noscript>
   <div class="sheet-foot">
     <button class="btn btn-ghost" type="button" id="portfolio-more" hidden>Afficher toutes les vues <svg class="icon"><use href="#i-plus"/></svg></button>
     <p class="mono" data-portfolio-provisional hidden>Images d’ambiance provisoires</p>
-    <a class="btn btn-primary" href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer" data-open-contact>Et votre histoire&nbsp;? <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-primary" href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer">Et votre histoire&nbsp;? <svg class="icon"><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
 <section class="themes wrap" id="prestations" aria-labelledby="themes-title">
   <div class="section-head" data-reveal>
-    <p class="mono"><span class="idx">03</span> Prestations</p>
+    <p class="mono"><span class="idx">04</span> Prestations</p>
     <h2 class="display" id="themes-title">On photographie <em>quoi&nbsp;?</em></h2>
     <p class="mono hint">Touchez pour réserver</p>
   </div>
@@ -101,113 +147,81 @@
   <noscript><p class="noscript-note">Mariage, naissance, famille, portrait, mode, événement, voiture, baptême, anniversaire, restaurant. <a href="https://wa.me/33767220949">Écrire à Lia sur WhatsApp</a>.</p></noscript>
 </section>
 
-<section class="about" id="apropos" aria-labelledby="about-title">
-  <div class="wrap about-inner">
-    <div class="about-photos">
-      <div class="about-main dev" data-reveal>
-        <img sizes="(min-width: 900px) 36vw, 78vw" data-image="aboutMain" loading="lazy" decoding="async" src="assets/about-main.webp" alt="Autoportrait au miroir : une jeune femme tient un appareil photo à bout de bras, en noir et blanc" width="1200" height="1547" srcset="assets/about-main-480.webp 480w, assets/about-main-800.webp 800w, assets/about-main.webp 1200w">
-      </div>
-      <div class="about-detail" data-reveal>
-        <img sizes="(min-width: 900px) 18vw, 44vw" data-image="aboutDetail" loading="lazy" decoding="async" src="assets/about-detail.webp" alt="Très gros plan sur un regard, en noir et blanc" width="930" height="600" srcset="assets/about-detail-480.webp 480w, assets/about-detail-800.webp 800w, assets/about-detail.webp 930w">
-        <span class="mono">Une autre façon de regarder</span>
-      </div>
-    </div>
-    <div class="about-copy" data-reveal>
-      <p class="mono"><span class="idx">04</span> Derrière l’objectif</p>
-      <h2 class="display" id="about-title">Moi, c’est <em>Lia.</em></h2>
-      <p class="about-lead">Une personne derrière l’appareil. Une histoire derrière chaque image.</p>
-      <p>Des gestes spontanés, une lumière, un lien. Mon regard se pose sur ces petits riens qui racontent beaucoup de vous.</p>
-      <p>Un mariage, une famille, un visage ou un lieu&nbsp;: l’envie est la même. Faire une place à ce qui vous ressemble.</p>
-      <p class="mono" data-about-provisional hidden>Images d’ambiance · portraits de Lia à venir</p>
-      <a class="btn btn-dark" href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer" data-open-contact>Faisons connaissance <svg class="icon"><use href="#i-arrow"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<section class="closing" id="contact" aria-labelledby="contact-title">
+<section class="closing" id="contact" aria-labelledby="contact-title" data-bar-hide>
   <canvas class="gl-canvas" id="closing-canvas" aria-hidden="true"></canvas>
   <div class="wrap closing-inner" data-reveal>
     <p class="mono"><span class="idx">05</span> Contact</p>
     <h2 class="display" id="contact-title">Et si on se <em>rencontrait&nbsp;?</em></h2>
-    <p class="closing-sub">Parlez-moi de votre projet. Trois infos suffisent, je vous réponds directement.</p>
-    <div class="closing-actions">
-      <a class="btn btn-primary btn-xl" href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer" data-open-contact data-magnetic>Réserver une date <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <p class="closing-sub">Parlez-moi de votre projet. Un message suffit, je vous réponds directement.</p>
+    <div class="contact-actions contact-actions-xl">
+      <a class="btn btn-primary btn-xl" href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer" data-magnetic><svg class="icon"><use href="#i-wa"/></svg> Réserver une date</a>
+      <a class="icon-button" href="https://www.instagram.com/liashoots_/" data-social="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Voir Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+      <a class="icon-button" href="mailto:liapellegrin22@gmail.com" aria-label="Écrire un e-mail"><svg class="icon"><use href="#i-mail"/></svg></a>
     </div>
     <ul class="direct-links">
-      <li><a href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-wa"/></svg> WhatsApp</a></li>
+      <li><a href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-wa"/></svg> WhatsApp</a></li>
       <li><a href="tel:+33767220949" data-tel>+33 7 67 22 09 49</a></li>
       <li><a href="mailto:liapellegrin22@gmail.com" data-email>liapellegrin22@gmail.com</a></li>
+      <li><a href="https://www.instagram.com/liashoots_/" data-social="Instagram" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-ig"/></svg> <span data-social-handle="Instagram">@liashoots_</span></a></li>
     </ul>
   </div>
 </section>
 
 </main>
 
-<footer class="site-footer wrap">
-  <a class="footer-wordmark display" href="#haut" aria-label="Madame Lia, retour en haut">Madame <em>Lia</em></a>
-  <div class="footer-cols">
-    <nav class="footer-col" aria-label="Pied de page">
-      <a href="#portfolio">Portfolio</a>
-      <a href="#prestations">Prestations</a>
-      <a href="#apropos">À propos</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="footer-col">
-      <a href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-      <a href="mailto:liapellegrin22@gmail.com" data-email>liapellegrin22@gmail.com</a>
-      <div id="social-links"><a class="social-link" href="https://www.instagram.com/liashoots_/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+<!-- partial:footer -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="footer-wordmark display" href="/" aria-current="page" aria-label="Madame Lia, accueil">Madame <em>Lia</em></a>
+      <div class="footer-pitch">
+        <p class="footer-tagline">Photographe. Mariage, naissance, famille, portrait, événement&nbsp;: des images qui vous ressemblent.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-wa"/></svg> Écrire sur WhatsApp</a>
+          <a class="icon-button" href="https://www.instagram.com/liashoots_/" data-social="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Voir Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+          <a class="icon-button" href="mailto:liapellegrin22@gmail.com" aria-label="Écrire un e-mail"><svg class="icon"><use href="#i-mail"/></svg></a>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="footer-bottom mono">
-    <span>© <span id="year">2026</span> Madame Lia</span>
-    <span data-site-provisional hidden>Maquette · visuels d’ambiance provisoires</span>
-    <button class="legal-button" type="button" data-open-legal>Mentions légales &amp; confidentialité</button>
+    <div class="footer-cols">
+      <nav class="footer-col" aria-label="Explorer">
+        <p class="mono">Explorer</p>
+        <a href="/" aria-current="page">Accueil</a>
+        <a href="/a-propos/">À propos</a>
+        <a href="/#portfolio">Portfolio</a>
+        <a href="/#prestations">Prestations</a>
+      </nav>
+      <nav class="footer-col" aria-label="Informations">
+        <p class="mono">Infos</p>
+        <a href="/contact/">Contact &amp; FAQ</a>
+        <a href="/livraison/">Espace client</a>
+        <a href="/mentions-legales/">Mentions légales</a>
+        <a href="/confidentialite/">Confidentialité</a>
+      </nav>
+      <div class="footer-col">
+        <p class="mono">Contact</p>
+        <a href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <a href="tel:+33767220949" data-tel>+33 7 67 22 09 49</a>
+        <a href="mailto:liapellegrin22@gmail.com" data-email>liapellegrin22@gmail.com</a>
+        <a href="https://www.instagram.com/liashoots_/" data-social="Instagram" data-social-handle="Instagram" target="_blank" rel="noopener noreferrer">@liashoots_</a>
+      </div>
+    </div>
+    <div class="footer-bottom mono">
+      <span>© <span data-year>2026</span> Madame Lia</span>
+      <span>Photographies protégées · reproduction interdite</span>
+      <span data-site-provisional hidden>Maquette · visuels d’ambiance provisoires</span>
+      <a class="footer-up" href="#haut">Haut de page <svg class="icon"><use href="#i-up"/></svg></a>
+    </div>
   </div>
 </footer>
+<!-- /partial:footer -->
 
+<!-- partial:cta-bar -->
 <div class="cta-bar" id="cta-bar" hidden>
-  <a class="btn btn-primary" href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer" data-open-contact>Réserver une date <svg class="icon"><use href="#i-arrow"/></svg></a>
-  <a class="cta-bar-wa" href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer" aria-label="Écrire directement sur WhatsApp"><svg class="icon"><use href="#i-wa"/></svg></a>
+  <a class="btn btn-primary" href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-wa"/></svg> Réserver une date</a>
+  <a class="cta-bar-icon" href="https://www.instagram.com/liashoots_/" data-social="Instagram" target="_blank" rel="noopener noreferrer" aria-label="Voir Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
 </div>
-
-<dialog class="sheet-dialog" id="contact-dialog" aria-labelledby="contact-dialog-title">
-  <form class="project-form" id="project-form" action="mailto:liapellegrin22@gmail.com" method="post" enctype="text/plain" novalidate>
-    <div class="dialog-head">
-      <div>
-        <p class="mono">Votre projet</p>
-        <h2 class="display" id="contact-dialog-title">On en <em>parle&nbsp;?</em></h2>
-      </div>
-      <button class="icon-button" type="button" data-close-contact aria-label="Fermer le formulaire"><svg class="icon"><use href="#i-close"/></svg></button>
-    </div>
-    <fieldset class="field" aria-describedby="service-error">
-      <legend>Quel type de projet&nbsp;?</legend>
-      <div class="chips" id="project-themes"></div>
-      <p class="field-error" id="service-error" hidden>Choisissez un type de projet.</p>
-    </fieldset>
-    <label class="field" for="project-name">Votre prénom
-      <input id="project-name" name="name" autocomplete="given-name" maxlength="100" required enterkeyhint="next">
-    </label>
-    <div class="field-row">
-      <label class="field" for="project-date">Date <small>facultatif</small>
-        <input id="project-date" name="date" type="date">
-      </label>
-      <label class="field" for="project-location">Lieu <small>facultatif</small>
-        <input id="project-location" name="location" autocomplete="off" maxlength="200" placeholder="Ville ou lieu" enterkeyhint="done">
-      </label>
-    </div>
-    <details class="field more">
-      <summary><svg class="icon"><use href="#i-plus"/></svg> Ajouter un mot</summary>
-      <label class="visually-hidden" for="project-message">Votre message</label>
-      <textarea id="project-message" name="message" rows="3" maxlength="3000" placeholder="Une ambiance, une envie, un détail…"></textarea>
-    </details>
-    <div class="form-actions">
-      <button class="btn btn-primary" type="submit" name="channel" value="whatsapp"><svg class="icon"><use href="#i-wa"/></svg> Envoyer sur WhatsApp</button>
-      <button class="btn btn-ghost" type="submit" name="channel" value="email"><svg class="icon"><use href="#i-mail"/></svg> Par e-mail</button>
-    </div>
-    <p class="form-note">Votre message s’ouvre prérempli dans l’application. Vous n’avez plus qu’à l’envoyer.</p>
-    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-  </form>
-</dialog>
+<!-- /partial:cta-bar -->
 
 <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
   <div class="lightbox-top">
@@ -222,21 +236,10 @@
   <div class="lightbox-bottom">
     <p class="mono" id="lightbox-caption" aria-live="polite"></p>
     <small class="mono" data-photo-provisional hidden>Image d’ambiance provisoire</small>
-    <a class="btn btn-primary" id="lightbox-cta" href="https://wa.me/33767220949" target="_blank" rel="noopener noreferrer" data-open-contact>Je veux des images comme ça <svg class="icon"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-primary" id="lightbox-cta" href="https://wa.me/33767220949?text=Bonjour%20Lia%2C%20je%20vous%20%C3%A9cris%20depuis%20votre%20site." target="_blank" rel="noopener noreferrer">Je veux des images comme ça <svg class="icon"><use href="#i-arrow"/></svg></a>
   </div>
 </dialog>
 
-<dialog class="legal-dialog" id="legal-dialog" aria-labelledby="legal-title">
-  <button class="icon-button dialog-close" type="button" data-close-legal aria-label="Fermer les mentions légales"><svg class="icon"><use href="#i-close"/></svg></button>
-  <p class="mono">Informations</p>
-  <h2 class="display" id="legal-title">En toute <em>transparence.</em></h2>
-  <h3>Contact</h3>
-  <p>Madame Lia · photographie<br><a href="mailto:liapellegrin22@gmail.com" data-email>liapellegrin22@gmail.com</a><br><a href="tel:+33767220949" data-tel>+33 7 67 22 09 49</a></p>
-  <h3>Éditeur et hébergement</h3>
-  <p><span data-site-provisional hidden>Certaines images sont des visuels provisoires générés pour préparer la mise en page. Elles ne constituent pas le portfolio photographique de Lia. </span>Les informations d’identification de l’éditeur, l’adresse professionnelle, l’immatriculation et les informations d’hébergement seront complétées avant publication.</p>
-  <h3>Vos données</h3>
-  <p>Le formulaire prépare votre message dans votre navigateur, puis ouvre WhatsApp ou votre application e-mail. Vous confirmez vous-même l’envoi. Ce site ne stocke pas vos demandes et n’intègre aucun outil de suivi. L’application choisie traite votre message selon ses propres conditions.</p>
-</dialog>
 
 <script id="site-fallback" type="application/json">{"contact":{"whatsapp":"33767220949","email":"liapellegrin22@gmail.com","socials":[{"label":"Instagram","url":"https://www.instagram.com/liashoots_/"}]},"services":[{"id":"mariage","title":"Mariage","eyebrow":"Le grand oui","bookable":true,"photos":[{"src":"assets/mariage-01.webp","alt":"Au-dessus de la mer, un marié embrasse la joue de la mariée qui éclate de rire, en noir et blanc","width":1200,"height":1600,"provisional":false,"srcset":"assets/mariage-01-480.webp 480w, assets/mariage-01-800.webp 800w, assets/mariage-01.webp 1200w","select":true},{"src":"assets/mariage-02.webp","alt":"Les mariés sortent sous un porche de pierre, mains levées, la mariée en robe de satin, en noir et blanc","width":1200,"height":1600,"provisional":false,"srcset":"assets/mariage-02-480.webp 480w, assets/mariage-02-800.webp 800w, assets/mariage-02.webp 1200w"},{"src":"assets/mariage-03.webp","alt":"Gros plan sur les mains jointes des mariés assis côte à côte, en noir et blanc","width":1200,"height":1600,"provisional":false,"srcset":"assets/mariage-03-480.webp 480w, assets/mariage-03-800.webp 800w, assets/mariage-03.webp 1200w"},{"src":"assets/mariage-04.webp","alt":"La mariée pose la tête sur l’épaule du marié devant la mer, en noir et blanc","width":1200,"height":1600,"provisional":false,"srcset":"assets/mariage-04-480.webp 480w, assets/mariage-04-800.webp 800w, assets/mariage-04.webp 1200w"}]},{"id":"naissance","title":"Naissance","eyebrow":"Les tout premiers jours","bookable":true,"photos":[{"src":"assets/naissance-01.webp","alt":"Deux petits pieds de bébé tenus entre les doigts d’un adulte, en noir et blanc","width":1200,"height":803,"provisional":false,"srcset":"assets/naissance-01-480.webp 480w, assets/naissance-01-800.webp 800w, assets/naissance-01.webp 1200w","select":true},{"src":"assets/naissance-02.webp","alt":"Un bébé coiffé d’un grand nœud regarde l’objectif, allongé sur le côté, en noir et blanc","width":1200,"height":803,"provisional":false,"srcset":"assets/naissance-02-480.webp 480w, assets/naissance-02-800.webp 800w, assets/naissance-02.webp 1200w"},{"src":"assets/naissance-03.webp","alt":"Les mains potelées d’un bébé serrées l’une contre l’autre, en noir et blanc","width":1200,"height":800,"provisional":false,"srcset":"assets/naissance-03-480.webp 480w, assets/naissance-03-800.webp 800w, assets/naissance-03.webp 1200w"},{"src":"assets/naissance-04.webp","alt":"Portrait d’un bébé au bandeau noué, le regard levé, en noir et blanc","width":1200,"height":803,"provisional":false,"srcset":"assets/naissance-04-480.webp 480w, assets/naissance-04-800.webp 800w, assets/naissance-04.webp 1200w"}]},{"id":"famille","title":"Famille","eyebrow":"Ceux qui comptent","bookable":true,"photos":[{"src":"assets/famille-01.webp","alt":"Un petit garçon rit aux éclats au premier plan, un autre se cache le visage derrière lui, en noir et blanc","width":1200,"height":1063,"provisional":false,"srcset":"assets/famille-01-480.webp 480w, assets/famille-01-800.webp 800w, assets/famille-01.webp 1200w","select":true},{"src":"assets/famille-02.webp","alt":"Deux femmes tête contre tête regardent un appareil photo, l’une en dentelle avec une fleur dans les cheveux, en noir et blanc","width":1200,"height":1540,"provisional":false,"srcset":"assets/famille-02-480.webp 480w, assets/famille-02-800.webp 800w, assets/famille-02.webp 1200w"},{"src":"assets/famille-03.webp","alt":"Une petite fille avec son cartable sourit en penchant la tête, en noir et blanc","width":1200,"height":1547,"provisional":false,"srcset":"assets/famille-03-480.webp 480w, assets/famille-03-800.webp 800w, assets/famille-03.webp 1200w"},{"src":"assets/famille-04.webp","alt":"Très gros plan sur le visage d’une petite fille aux boucles claires, en noir et blanc","width":1200,"height":1540,"provisional":false,"srcset":"assets/famille-04-480.webp 480w, assets/famille-04-800.webp 800w, assets/famille-04.webp 1200w"}]},{"id":"portrait","title":"Portrait","eyebrow":"Simplement vous","bookable":true,"photos":[{"src":"assets/portrait-01.webp","alt":"Une jeune femme aux cheveux bouclés, le menton posé sur le poing, éclairée au flash dans la nuit","width":1200,"height":1600,"provisional":false,"srcset":"assets/portrait-01-480.webp 480w, assets/portrait-01-800.webp 800w, assets/portrait-01.webp 1200w","select":true},{"src":"assets/portrait-02.webp","alt":"Une jeune femme à lunettes en manteau de fourrure clair, cheveux au vent devant des roseaux","width":1200,"height":1600,"provisional":false,"srcset":"assets/portrait-02-480.webp 480w, assets/portrait-02-800.webp 800w, assets/portrait-02.webp 1200w"},{"src":"assets/portrait-03.webp","alt":"Une jeune femme de profil au crépuscule, épaules dénudées, une guirlande lumineuse derrière elle","width":1200,"height":1596,"provisional":false,"srcset":"assets/portrait-03-480.webp 480w, assets/portrait-03-800.webp 800w, assets/portrait-03.webp 1200w"},{"src":"assets/portrait-04.webp","alt":"Une jeune femme rit les yeux fermés, la tête dans le creux du bras, éclairée au flash","width":1200,"height":1600,"provisional":false,"srcset":"assets/portrait-04-480.webp 480w, assets/portrait-04-800.webp 800w, assets/portrait-04.webp 1200w"},{"src":"assets/portrait-05.webp","alt":"Un jeune homme accoudé au bord d’une piscine se cache le visage dans les mains, vu d’en haut","width":1200,"height":1600,"provisional":false,"srcset":"assets/portrait-05-480.webp 480w, assets/portrait-05-800.webp 800w, assets/portrait-05.webp 1200w"},{"src":"assets/portrait-06.webp","alt":"Portrait serré d’une jeune femme à lunettes teintées, bras croisés dans un manteau de fourrure, devant un étang","width":1200,"height":1600,"provisional":false,"srcset":"assets/portrait-06-480.webp 480w, assets/portrait-06-800.webp 800w, assets/portrait-06.webp 1200w"},{"src":"assets/portrait-07.webp","alt":"Une jeune femme, bras relevés derrière la tête, regarde de côté, en noir et blanc","width":930,"height":600,"provisional":false,"srcset":"assets/portrait-07-480.webp 480w, assets/portrait-07-800.webp 800w, assets/portrait-07.webp 930w"},{"src":"assets/portrait-08.webp","alt":"De dos, une femme en long manteau de fourrure s’éloigne sur une allée d’automne","width":1200,"height":1600,"provisional":false,"srcset":"assets/portrait-08-480.webp 480w, assets/portrait-08-800.webp 800w, assets/portrait-08.webp 1200w"},{"src":"assets/portrait-09.webp","alt":"Une jeune femme, le visage à demi caché par ses cheveux, en noir et blanc","width":829,"height":535,"provisional":false,"srcset":"assets/portrait-09-480.webp 480w, assets/portrait-09-800.webp 800w, assets/portrait-09.webp 829w"}]},{"id":"mode","title":"Mode","eyebrow":"Matières et silhouettes","bookable":true,"photos":[{"src":"assets/mode-01.webp","alt":"Un mannequin de profil ajuste sa casquette grise, en veste croisée sombre et jupe en denim, sur fond clair","width":1178,"height":1570,"provisional":false,"srcset":"assets/mode-01-480.webp 480w, assets/mode-01-800.webp 800w, assets/mode-01.webp 1178w"},{"src":"assets/mode-02.webp","alt":"Des bustes de couture blancs alignés devant un mur jaune","width":1176,"height":1568,"provisional":false,"srcset":"assets/mode-02-480.webp 480w, assets/mode-02-800.webp 800w, assets/mode-02.webp 1176w"},{"src":"assets/mode-03.webp","alt":"Le mannequin, tête baissée sous sa casquette, une main posée sur la veste croisée","width":1159,"height":1545,"provisional":false,"srcset":"assets/mode-03-480.webp 480w, assets/mode-03-800.webp 800w, assets/mode-03.webp 1159w"},{"src":"assets/mode-04.webp","alt":"Un bocal en verre rempli de boutons multicolores","width":1183,"height":1577,"provisional":false,"srcset":"assets/mode-04-480.webp 480w, assets/mode-04-800.webp 800w, assets/mode-04.webp 1183w"}]},{"id":"evenement","title":"Événement","eyebrow":"L’énergie du moment","bookable":true,"photos":[{"src":"assets/evenement-01.webp","alt":"Un jeune homme en uniforme d’époque, bicorne à plumes bleues et blanches, regarde l’objectif, sabre à l’épaule","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-01-480.webp 480w, assets/evenement-01-800.webp 800w, assets/evenement-01.webp 1200w","select":true},{"src":"assets/evenement-02.webp","alt":"Des hommes en tenue de marin tirent une salve de tromblons, flammes et fumée au-dessus de la rue","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-02-480.webp 480w, assets/evenement-02-800.webp 800w, assets/evenement-02.webp 1200w"},{"src":"assets/evenement-03.webp","alt":"De dos, un homme en uniforme bleu et rouge s’éloigne dans une ruelle étroite","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-03-480.webp 480w, assets/evenement-03-800.webp 800w, assets/evenement-03.webp 1200w"},{"src":"assets/evenement-04.webp","alt":"Un petit garçon en béret rouge et marinière touche une statue dorée ornée de fleurs blanches","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-04-480.webp 480w, assets/evenement-04-800.webp 800w, assets/evenement-04.webp 1200w"},{"src":"assets/evenement-05.webp","alt":"Un officier de profil en uniforme d’époque, bicorne à plumes bleues, sabre au clair","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-05-480.webp 480w, assets/evenement-05-800.webp 800w, assets/evenement-05.webp 1200w"},{"src":"assets/evenement-06.webp","alt":"Des femmes en costume provençal, chapeaux de paille et jupes rayées, alignées de profil","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-06-480.webp 480w, assets/evenement-06-800.webp 800w, assets/evenement-06.webp 1200w"},{"src":"assets/evenement-07.webp","alt":"Dans un nuage de fumée, une silhouette en uniforme brandit un drapeau rouge et blanc","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-07-480.webp 480w, assets/evenement-07-800.webp 800w, assets/evenement-07.webp 1200w"},{"src":"assets/evenement-08.webp","alt":"Un enfant en béret rouge marche main dans la main avec deux hommes en chapeau noir, pendant un défilé","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-08-480.webp 480w, assets/evenement-08-800.webp 800w, assets/evenement-08.webp 1200w"},{"src":"assets/evenement-09.webp","alt":"Des chapeaux de paille à large bord au premier plan, des visages souriants en arrière-plan","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-09-480.webp 480w, assets/evenement-09-800.webp 800w, assets/evenement-09.webp 1200w"},{"src":"assets/evenement-10.webp","alt":"Des femmes en coiffe de dentelle blanche vues de dos pendant une fête traditionnelle","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-10-480.webp 480w, assets/evenement-10-800.webp 800w, assets/evenement-10.webp 1200w"},{"src":"assets/evenement-11.webp","alt":"Une foule de bérets à pompon rouge devant une façade orange au soleil couchant","width":1200,"height":1595,"provisional":false,"srcset":"assets/evenement-11-480.webp 480w, assets/evenement-11-800.webp 800w, assets/evenement-11.webp 1200w"},{"src":"assets/evenement-12.webp","alt":"Des mains réunies sur un ballon de basket avant un match, en noir et blanc","width":1200,"height":1600,"provisional":false,"srcset":"assets/evenement-12-480.webp 480w, assets/evenement-12-800.webp 800w, assets/evenement-12.webp 1200w"}]},{"id":"voiture","title":"Voiture","eyebrow":"L’allure en images","bookable":true,"photos":[{"src":"assets/voiture-01.webp","alt":"Une berline sombre et un SUV vert garés devant un mur de pierre, sous les pins","width":1200,"height":804,"provisional":false,"srcset":"assets/voiture-01-480.webp 480w, assets/voiture-01-800.webp 800w, assets/voiture-01.webp 1200w"},{"src":"assets/voiture-02.webp","alt":"Détail de la calandre et de la jante d’une berline bordeaux","width":1200,"height":800,"provisional":false,"srcset":"assets/voiture-02-480.webp 480w, assets/voiture-02-800.webp 800w, assets/voiture-02.webp 1200w"},{"src":"assets/voiture-03.webp","alt":"Un SUV vert bouteille vu de trois quarts avant, en plein soleil","width":1200,"height":804,"provisional":false,"srcset":"assets/voiture-03-480.webp 480w, assets/voiture-03-800.webp 800w, assets/voiture-03.webp 1200w"},{"src":"assets/voiture-04.webp","alt":"Le volant et le tableau de bord d’un SUV, vus depuis la portière","width":1200,"height":800,"provisional":false,"srcset":"assets/voiture-04-480.webp 480w, assets/voiture-04-800.webp 800w, assets/voiture-04.webp 1200w"}]},{"id":"voyage","title":"Voyage","eyebrow":"Carnets personnels","bookable":false,"photos":[{"src":"assets/voyage-01.webp","alt":"Un homme en casquette marche devant une case blanche au toit de tôle orange","width":1200,"height":1600,"provisional":false,"srcset":"assets/voyage-01-480.webp 480w, assets/voyage-01-800.webp 800w, assets/voyage-01.webp 1200w","select":true},{"src":"assets/voyage-02.webp","alt":"Une femme allongée sur une jetée au coucher du soleil, un village en face sur la baie","width":1042,"height":1156,"provisional":false,"srcset":"assets/voyage-02-480.webp 480w, assets/voyage-02-800.webp 800w, assets/voyage-02.webp 1042w"},{"src":"assets/voyage-03.webp","alt":"Un pêcheur debout sur sa barque, en silhouette sur un coucher de soleil orange","width":1200,"height":1600,"provisional":false,"srcset":"assets/voyage-03-480.webp 480w, assets/voyage-03-800.webp 800w, assets/voyage-03.webp 1200w"},{"src":"assets/voyage-04.webp","alt":"Un ara rouge aux ailes jaunes et bleues perché dans les feuillages","width":1200,"height":1595,"provisional":false,"srcset":"assets/voyage-04-480.webp 480w, assets/voyage-04-800.webp 800w, assets/voyage-04.webp 1200w"},{"src":"assets/voyage-05.webp","alt":"Un poste de secours rose et jaune sur une plage, dans une lumière blanche","width":1200,"height":1600,"provisional":false,"srcset":"assets/voyage-05-480.webp 480w, assets/voyage-05-800.webp 800w, assets/voyage-05.webp 1200w"},{"src":"assets/voyage-06.webp","alt":"La silhouette d’une femme de profil devant la mer argentée","width":1200,"height":1600,"provisional":false,"srcset":"assets/voyage-06-480.webp 480w, assets/voyage-06-800.webp 800w, assets/voyage-06.webp 1200w"},{"src":"assets/voyage-07.webp","alt":"Des pentes enneigées ponctuées de quelques sapins isolés","width":1200,"height":1600,"provisional":false,"srcset":"assets/voyage-07-480.webp 480w, assets/voyage-07-800.webp 800w, assets/voyage-07.webp 1200w"},{"src":"assets/voyage-08.webp","alt":"Des reliefs volcaniques rouges et ocre sous un rempart verdoyant","width":1200,"height":1600,"provisional":false,"srcset":"assets/voyage-08-480.webp 480w, assets/voyage-08-800.webp 800w, assets/voyage-08.webp 1200w"},{"src":"assets/voyage-09.webp","alt":"Une lanterne et un clocher dans la lumière dorée du soir","width":1022,"height":1538,"provisional":false,"srcset":"assets/voyage-09-480.webp 480w, assets/voyage-09-800.webp 800w, assets/voyage-09.webp 1022w"},{"src":"assets/voyage-10.webp","alt":"Un singe capucin à face blanche sur une branche, le regard vers l’objectif","width":1200,"height":1595,"provisional":false,"srcset":"assets/voyage-10-480.webp 480w, assets/voyage-10-800.webp 800w, assets/voyage-10.webp 1200w"},{"src":"assets/voyage-11.webp","alt":"Une petite fille de dos regarde la mer au crépuscule","width":1200,"height":1600,"provisional":false,"srcset":"assets/voyage-11-480.webp 480w, assets/voyage-11-800.webp 800w, assets/voyage-11.webp 1200w"},{"src":"assets/voyage-12.webp","alt":"Un grand voilier à trois mâts sur la mer, dans la brume dorée du soir","width":1010,"height":1080,"provisional":false,"srcset":"assets/voyage-12-480.webp 480w, assets/voyage-12-800.webp 800w, assets/voyage-12.webp 1010w"},{"src":"assets/voyage-13.webp","alt":"Le toit couvert de neige d’un chalet en bois, devant une forêt de mélèzes","width":1200,"height":1600,"provisional":false,"srcset":"assets/voyage-13-480.webp 480w, assets/voyage-13-800.webp 800w, assets/voyage-13.webp 1200w"},{"src":"assets/voyage-14.webp","alt":"Un oiseau au long cou perché sur un tronc, sous la pluie, devant une prairie verte","width":1200,"height":1600,"provisional":false,"srcset":"assets/voyage-14-480.webp 480w, assets/voyage-14-800.webp 800w, assets/voyage-14.webp 1200w"}]},{"id":"bapteme","title":"Baptême","eyebrow":"Les liens précieux","bookable":true,"photos":[]},{"id":"anniversaire","title":"Anniversaire","eyebrow":"Une bougie de plus","bookable":true,"photos":[]},{"id":"restaurant","title":"Restaurant","eyebrow":"Le goût du beau","bookable":true,"photos":[]}],"images":{"hero":{"src":"assets/mariage-01.webp","alt":"Au-dessus de la mer, un marié embrasse la joue de la mariée qui éclate de rire, en noir et blanc","width":1200,"height":1600,"provisional":false,"srcset":"assets/mariage-01-480.webp 480w, assets/mariage-01-800.webp 800w, assets/mariage-01.webp 1200w"},"aboutMain":{"src":"assets/about-main.webp","alt":"Autoportrait au miroir : une jeune femme tient un appareil photo à bout de bras, en noir et blanc","width":1200,"height":1547,"provisional":false,"srcset":"assets/about-main-480.webp 480w, assets/about-main-800.webp 800w, assets/about-main.webp 1200w"},"aboutDetail":{"src":"assets/about-detail.webp","alt":"Très gros plan sur un regard, en noir et blanc","width":930,"height":600,"provisional":false,"srcset":"assets/about-detail-480.webp 480w, assets/about-detail-800.webp 800w, assets/about-detail.webp 930w"}}}</script>
 </body>
