@@ -1,4 +1,4 @@
-// Accueil : pellicule d'ouverture, planche-contact, prestations, visionneuse, typo cinétique et scène WebGL.
+// Accueil : tirages flottants, pellicule, planche-contact, prestations, visionneuse, typo cinétique et scènes WebGL.
 // Dépend de site.js (chargé avant, en defer).
 (() => {
   'use strict';
@@ -42,16 +42,12 @@
   }
   const imageTag = (photo, sizes, eager = false, key = '') => `<img${key ? ` data-image="${key}" fetchpriority="high"` : ''} src="${escape(photo.src)}"${photo.srcset ? ` srcset="${escape(photo.srcset)}" sizes="${sizes}"` : ''} alt="${escape(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="${eager ? 'eager' : 'lazy'}" decoding="async">`;
 
-  /* ---------- Pellicule d'ouverture ---------- */
-  // Même balisage que le bloc généré par scripts/sync-content.mjs : la photo d'ouverture (images.hero),
-  // puis les vues marquées select:true. En mouvement, une seconde série masquée permet une boucle sans fin.
+  /* ---------- Pellicule (sous le hero) ---------- */
+  // Même balisage que le bloc généré par scripts/sync-content.mjs : les vues marquées select:true.
+  // En mouvement, une seconde série masquée permet une boucle sans fin.
   const reelSizes = '(min-width: 900px) 34vw, 78vw';
-  function selectionList() {
-    const mixed = mixedPhotos();
-    const opening = mixed.find(photo => photo.src === images.hero.src) || { ...images.hero, title: '' };
-    return [opening, ...mixed.filter(photo => photo.select && photo.src !== opening.src)];
-  }
-  const stripItem = (photo, index, clone = false) => `<figure class="strip-item${clone ? ' is-clone' : ''}" style="aspect-ratio:${photo.width}/${photo.height}"${clone ? ' aria-hidden="true"' : ''}><button class="dev" type="button" data-select-index="${index}"${clone ? ' tabindex="-1"' : ` aria-label="Agrandir : ${escape(photo.title || photo.alt)}"`}>${imageTag(photo, reelSizes, !clone && index < 3, !clone && index === 0 ? 'hero' : '')}</button>${photo.title ? `<figcaption class="mono">${escape(photo.title)}</figcaption>` : ''}</figure>`;
+  const selectionList = () => mixedPhotos().filter(photo => photo.select);
+  const stripItem = (photo, index, clone = false) => `<figure class="strip-item${clone ? ' is-clone' : ''}" style="aspect-ratio:${photo.width}/${photo.height}"${clone ? ' aria-hidden="true"' : ''}><button class="dev" type="button" data-select-index="${index}"${clone ? ' tabindex="-1"' : ` aria-label="Agrandir : ${escape(photo.title)}"`}>${imageTag(photo, reelSizes)}</button><figcaption class="mono">${escape(photo.title)}</figcaption></figure>`;
   function renderSelection() {
     selectionPhotos = selectionList();
     const strip = $('#selection-strip');
@@ -323,6 +319,7 @@
     const selects = mixedPhotos().filter(photo => photo.select && photo.src !== images.hero.src);
     const colourful = selects.find(photo => photo.serviceId === 'evenement') || selects[0] || images.hero;
     import('/gl.js').then(module => module.start({
+      hero: { canvas: $('#hero-canvas'), section: $('.hero'), frame: $('.hero-frame'), image: $('.hero-image'), sides: selects.slice(0, 4).map(small) },
       closing: { canvas: $('#closing-canvas'), section: $('.closing'), src: medium(colourful) },
       reducedMotion
     })).catch(() => { /* Sans WebGL, les images fixes restent en place. */ });
