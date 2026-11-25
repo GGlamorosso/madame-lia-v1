@@ -99,4 +99,22 @@
   }
 
   window.MadameLia = { $, $$, reducedMotion, observeReveals, forgetReveals, updateBar, motion: () => motionEnabled };
+
+  /* ---------- Laboratoire de motion (branche labo-motion uniquement) ---------- */
+  // ?labo=nom charge /labo/nom.css puis /labo/nom.js (module) ; le choix suit la visite d'une page à l'autre.
+  // ?labo=off revient au site normal.
+  (() => {
+    let name = new URLSearchParams(location.search).get('labo');
+    try {
+      if (name === 'off') { sessionStorage.removeItem('labo'); name = null; }
+      else if (name) sessionStorage.setItem('labo', name);
+      else name = sessionStorage.getItem('labo');
+    } catch { /* stockage indisponible : seulement pour cette page */ }
+    if (!name || !/^[a-z0-9-]+$/.test(name)) return;
+    document.documentElement.dataset.labo = name;
+    const style = document.createElement('link');
+    style.rel = 'stylesheet'; style.href = `/labo/${name}.css`;
+    document.head.append(style);
+    import(`/labo/${name}.js`).catch(error => console.warn('Labo indisponible :', name, error));
+  })();
 })();

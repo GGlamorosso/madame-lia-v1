@@ -58,6 +58,8 @@
   }
   // Défilement automatique et lent ; il s'arrête au survol, au toucher, au clavier, visionneuse ouverte
   // ou hors écran, et jamais en mouvement réduit. Le glisser manuel reste possible.
+  // reelControl.boost : multiplicateur de vitesse (laboratoire de motion).
+  const reelControl = { boost: 1 };
   const reel = (() => {
     const strip = $('#selection-strip');
     let position = 0, loop = 0, last = 0, frame = 0, holdUntil = 0, hovered = false, visible = false;
@@ -72,7 +74,7 @@
       const delta = Math.min(64, now - (last || now));
       last = now;
       if (!loop || paused(now)) { position = strip.scrollLeft; return; }
-      position += (desktop.matches ? 40 : 28) * delta / 1000;
+      position += (desktop.matches ? 40 : 28) * reelControl.boost * delta / 1000;
       if (position >= loop) position -= loop;
       strip.scrollLeft = position;
     }
@@ -324,6 +326,8 @@
       reducedMotion
     })).catch(() => { /* Sans WebGL, les images fixes restent en place. */ });
   }
+  // Accès pour le laboratoire de motion : photos, visionneuse, pellicule.
+  window.MadameLia.home = { photos: () => mixedPhotos(), selection: () => selectionPhotos, openLightbox: (list, index, trigger) => openLightbox(list, index, trigger), reel: reelControl, contentReady };
   const whenIdle = window.requestIdleCallback || (callback => setTimeout(callback, 300));
   const boot = () => contentReady.then(() => whenIdle(startGL));
   if (document.readyState === 'complete') boot(); else addEventListener('load', boot, { once: true });
